@@ -10,6 +10,7 @@ namespace Client.Models
 {
     public class ResourceBase
     {
+        public int Id { get; set; }
         public static string GetPropertyDisplayName(string propertyName, Type type)
         {
             PropertyInfo pInfo = type.GetProperty(propertyName);

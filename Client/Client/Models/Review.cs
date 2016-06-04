@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Client.Models
 {
-    class Review : ResourceBase
+    public class Review : ResourceBase
     {
+        public string Content { get; set; }
+        public int Note { get; set; }
+        public Movie Movie { get; set; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Client.Models
 {
-    class Actor : ResourceBase
+    public class Actor : ResourceBase
     {
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
     }
 }

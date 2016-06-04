@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Client.Models
 {
-    public class Director : ResourceBase
+    public class Genre : ResourceBase
     {
         public string Name { get; set; }
 
-        public string Surname { get; set; }
-
         public override string ToString()
         {
-            return Name + " " + Surname;
+            return Name;
         }
     }
 }
