@@ -9,6 +9,7 @@ namespace MoviesService.Models
 {
     public class Genre
     {
+        [Key]
         public int GenreID { get; set; }
         public string Name { get; set; }
         
