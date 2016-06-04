@@ -20,12 +20,14 @@ namespace Client
         GridViewManager gridManager = new GridViewManager();
         GridDataFilter filterForMainGrid = null;
         List<ResourceBase> downloadedData = null;
+        ProcessObject processObject;
 
         public Main()
         {
             InitializeComponent();
             FillForm();
             gridManager.RefresingMainView = SetFilterAndRefreshGridView;
+            processObject = new ProcessObject();
         }
 
         public void FillForm()
@@ -38,7 +40,7 @@ namespace Client
                 new SoaResourceModel() {ShowableName = "Director", DataBindedType = typeof(Director)},
             };
 
-            downloadedData = (new List<Movie>() { new Movie() { Name = "7", ProductionYear = 2001 } }).Select(p => (ResourceBase)p).ToList();
+            downloadedData = new List<ResourceBase>();
             dataGridView1.DataSource = downloadedData.Select(p => Convert.ChangeType(p, ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType)).ToList();
 
             if (filterForMainGrid == null)
@@ -70,7 +72,11 @@ namespace Client
         public void RefreshData()
         {
             Type currentlyBindedType = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
-            dataGridView1.DataSource = ApplyFilter().Select(p => Convert.ChangeType(p, ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType)).ToList();
+            var listForGridView = ApplyFilter().Select(p => Convert.ChangeType(p, ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType)).ToList();
+            if (listForGridView != null)
+                dataGridView1.DataSource = listForGridView;
+            else
+                dataGridView1.DataSource = null;
         }
 
         private List<ResourceBase> ApplyFilter()
@@ -167,9 +173,10 @@ namespace Client
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType == typeof(Movie))
+            Type typeForOperation = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
+            if (typeForOperation == typeof(Movie))
             {
-                using (AddEditMovieForm movieForm = new AddEditMovieForm(new Movie(), ResourceForms.Base.FormType.ADD))
+                using (MovieForm movieForm = new MovieForm(new Movie(), ResourceForms.Base.FormType.ADD, processObject))
                 {
                     movieForm.ShowDialog();
                 }
@@ -178,15 +185,47 @@ namespace Client
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            if (((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType == typeof(Movie))
+            Type typeForOperation = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
+            if (typeForOperation == typeof(Movie))
             {
-                Movie selected = (Movie)dataGridView1.SelectedRows[0].DataBoundItem;
-                using (AddEditMovieForm movieForm = new AddEditMovieForm(new Movie(), ResourceForms.Base.FormType.EDIT))
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
                 {
-                    movieForm.ShowDialog();
+                    Movie selected = (Movie)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (MovieForm movieForm = new MovieForm(selected, ResourceForms.Base.FormType.EDIT, processObject))
+                    {
+                        movieForm.ShowDialog();
+                    }
                 }
             }
 
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Type currentType = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
+
+            if (currentType == typeof(Movie))
+            {
+                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                RefreshData();
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Type currentType = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
+
+            if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+            {
+                int idToDelete = ((ResourceBase)dataGridView1.SelectedRows[0].DataBoundItem).Id;
+                if (currentType == typeof(Movie))
+                {
+
+                    processObject.MovieClient.DeleteMovie(idToDelete);
+                }
+                downloadedData = downloadedData.Where(p => p.Id != idToDelete).ToList();
+                RefreshData();
+            }            
         }
     }
 }

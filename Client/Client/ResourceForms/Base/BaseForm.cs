@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Client.ResourceForms.Base
 {
-    public partial class AddEditBaseForm : Form
+    public partial class BaseForm : Form
     {
-        public AddEditBaseForm()
+        public BaseForm()
         {
             InitializeComponent();
         }
@@ -40,6 +40,7 @@ namespace Client.ResourceForms.Base
     public enum FormType
     {
         EDIT,
-        ADD
+        ADD,
+        INFO
     }
 }

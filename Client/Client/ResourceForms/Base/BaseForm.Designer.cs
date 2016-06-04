@@ -1,6 +1,6 @@
 ﻿namespace Client.ResourceForms.Base
 {
-    partial class AddEditBaseForm
+    partial class BaseForm
     {
         /// <summary>
         /// Required designer variable.
