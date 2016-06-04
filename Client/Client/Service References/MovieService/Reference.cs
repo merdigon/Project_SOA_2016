@@ -84,6 +84,9 @@ namespace Client.MovieService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CoverURIField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -108,6 +111,19 @@ namespace Client.MovieService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
             }
         }
         
