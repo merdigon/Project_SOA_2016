@@ -19,27 +19,27 @@ namespace MoviesService
 
         public List<Movie> GetMovies()
         {
-            return db.Movies.ToList();
+            return db.Movies.Include("Genre").ToList();
         }
 
         public List<Movie> GetMoviesByGenre(Genre genre)
         {
-            return db.Movies.Where(x => x.Genre == genre).ToList();
+            return db.Movies.Include("Genre").Where(x => x.Genre == genre).ToList();
         }
 
         public List<Movie> GetMoviesByTitle(string title)
         {
-            return db.Movies.Where(x => x.Title == title).ToList();
+            return db.Movies.Include("Genre").Where(x => x.Title == title).ToList();
         }
 
         public List<Movie> GetMoviesByTitlePart(string part)
         {
-            return db.Movies.Where(x => x.Title.Contains(part)).ToList();
+            return db.Movies.Include("Genre").Where(x => x.Title.Contains(part)).ToList();
         }
 
         public List<Movie> GetMoviesByYear(int year)
         {
-            return db.Movies.Where(x => x.Year == year).ToList();
+            return db.Movies.Include("Genre").Where(x => x.Year == year).ToList();
         }
 
 

@@ -14,6 +14,6 @@ namespace Library
         public string Content { get; set; }
         public int Note { get; set; }
         public int MovieID { get; set; }
-        //public virtual User User { get; set; }
+        public int UserID { get; set; }
     }
 }

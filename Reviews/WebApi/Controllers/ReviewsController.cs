@@ -30,8 +30,8 @@ namespace ProductService.Controllers
         [ODataRoute("AverageNote(MovieID={movieID})")]
         public IHttpActionResult GetAverageNote([FromODataUri] int movieID)
         {
-            int total = db.Reviews.ToList().Sum(x => x.Note);
-            int count = db.Reviews.Count();
+            int total = db.Reviews.Where(m => m.MovieID == movieID).Sum(s => s.Note);
+            int count = db.Reviews.Where(p => p.MovieID == movieID).Count();
             if (count > 0)
             {
                 double rate = total / (double)count;

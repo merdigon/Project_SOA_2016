@@ -22,6 +22,16 @@ namespace MoviesService.DAL
             genres.ForEach(i => context.Genres.Add(i));
             context.SaveChanges();
 
+            var movies = new List<Movie>
+            {
+                new Movie() {Title = "Pewny Film", Description = "SOA movie", Year = 2016, DirectorID = 1, Country = "Poland", Genre = context.Genres.Single(x=>x.Name == "Horror") },
+                new Movie() {Title = "Pewny Film 2", Description = "Cool movie", Year = 2015, DirectorID = 1, Country = "Poland", Genre = context.Genres.Single(x=>x.Name == "Comedy") },
+                new Movie() {Title = "Third Movie", Description = "Nice thriller", Year = 2010, DirectorID = 2, Country = "England", Genre = context.Genres.Single(x=>x.Name == "Thriller") },
+
+            };
+            movies.ForEach(i => context.Movies.Add(i));
+            context.SaveChanges();
+
         }
     }
 }
