@@ -1,0 +1,14 @@
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework6.Npgsql.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\Npgsql.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework.xml
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\EntityFramework6.Npgsql.xml
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\Npgsql.xml
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\obj\Debug\MoviesService.csprojResolveAssemblyReference.cache
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\MoviesService.dll.config
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\MoviesService.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\bin\Debug\MoviesService.pdb
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\obj\Debug\MoviesService.dll
+C:\Users\null\Desktop\lab9\SOAProject\MovieService\obj\Debug\MoviesService.pdb
