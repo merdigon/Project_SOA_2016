@@ -91,6 +91,7 @@ namespace MoviesService
                 result.CoverURI = movie.CoverURI;
                 result.Genre = movie.Genre;
                 result.Title = movie.Title;
+                result.Country = movie.Country;
                 db.SaveChanges();
                 return true;
             }

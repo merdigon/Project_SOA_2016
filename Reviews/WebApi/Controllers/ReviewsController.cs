@@ -6,6 +6,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.OData;
+using System.Web.OData.Routing;
+
 namespace ProductService.Controllers
 {
     public class ReviewsController : ODataController
@@ -22,6 +24,23 @@ namespace ProductService.Controllers
         {
             IQueryable<Review> result = db.Reviews.Where(p => p.ReviewID == key);
             return SingleResult.Create(result);
+        }
+
+        [HttpGet]
+        [ODataRoute("AverageNote(MovieID={movieID})")]
+        public IHttpActionResult GetAverageNote([FromODataUri] int movieID)
+        {
+            int total = db.Reviews.ToList().Sum(x => x.Note);
+            int count = db.Reviews.Count();
+            if (count > 0)
+            {
+                double rate = total / (double)count;
+                return Ok(rate);
+            }
+            else
+            {
+                return Ok(0);
+            }
         }
 
         public async Task<IHttpActionResult> Post(Review review)

@@ -16,7 +16,9 @@ namespace WebApi
 
 
             builder.EntitySet<Review>("Reviews");
-           
+
+            builder.Function("AverageNote").Returns<double>().Parameter<int>("MovieID");
+
 
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
