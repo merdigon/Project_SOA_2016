@@ -43,30 +43,31 @@ namespace MoviesService
         }
 
 
-        public bool AddMovie(Movie movie)
+        public Movie AddMovie(Movie movie)
         {
             try 
             {
                 db.Movies.Add(movie);
-                return true;
+                db.SaveChanges();
+                return movie;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 
-        public bool AddGenre(Genre genre)
+        public Genre AddGenre(Genre genre)
         {
             try
             {
                 db.Genres.Add(genre);
                 db.SaveChanges();
-                return true;
+                return genre;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 

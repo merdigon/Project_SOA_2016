@@ -30,10 +30,10 @@ namespace MoviesService
         List<Movie> GetMoviesByYear(int year);
 
         [OperationContract]
-        bool AddMovie(Movie movie);
+        Movie AddMovie(Movie movie);
 
         [OperationContract]
-        bool AddGenre(Genre genre);
+        Genre AddGenre(Genre genre);
 
         [OperationContract]
         void DeleteMovie(Movie movie);
