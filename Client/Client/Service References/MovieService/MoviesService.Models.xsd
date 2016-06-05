@@ -21,6 +21,7 @@
   <xs:element name="ArrayOfMovie" nillable="true" type="tns:ArrayOfMovie" />
   <xs:complexType name="Movie">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CoverURI" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Genre" nillable="true" type="tns:Genre" />

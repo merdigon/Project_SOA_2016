@@ -38,7 +38,7 @@
             this.btnDeleteActor = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbGentre = new System.Windows.Forms.ComboBox();
+            this.cbGenre = new System.Windows.Forms.ComboBox();
             this.tbCountry = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -146,11 +146,11 @@
             // 
             // cbGentre
             // 
-            this.cbGentre.FormattingEnabled = true;
-            this.cbGentre.Location = new System.Drawing.Point(100, 264);
-            this.cbGentre.Name = "cbGentre";
-            this.cbGentre.Size = new System.Drawing.Size(359, 24);
-            this.cbGentre.TabIndex = 13;
+            this.cbGenre.FormattingEnabled = true;
+            this.cbGenre.Location = new System.Drawing.Point(100, 264);
+            this.cbGenre.Name = "cbGentre";
+            this.cbGenre.Size = new System.Drawing.Size(359, 24);
+            this.cbGenre.TabIndex = 13;
             // 
             // tbCountry
             // 
@@ -268,7 +268,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbCountry);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbGentre);
+            this.Controls.Add(this.cbGenre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDeleteActor);
@@ -292,7 +292,7 @@
             this.Controls.SetChildIndex(this.btnDeleteActor, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.cbGentre, 0);
+            this.Controls.SetChildIndex(this.cbGenre, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.tbCountry, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -323,7 +323,7 @@
         private System.Windows.Forms.Button btnDeleteActor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbGentre;
+        private System.Windows.Forms.ComboBox cbGenre;
         private System.Windows.Forms.TextBox tbCountry;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

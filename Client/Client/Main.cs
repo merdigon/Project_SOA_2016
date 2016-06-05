@@ -179,6 +179,11 @@ namespace Client
                 using (MovieForm movieForm = new MovieForm(new Movie(), ResourceForms.Base.FormType.ADD, processObject))
                 {
                     movieForm.ShowDialog();
+                    if (movieForm.ResultObject != null)
+                    {
+                        downloadedData.Add((ResourceBase)movieForm.ResultObject);
+                        RefreshData();
+                    }
                 }
             }
         }
@@ -194,6 +199,7 @@ namespace Client
                     using (MovieForm movieForm = new MovieForm(selected, ResourceForms.Base.FormType.EDIT, processObject))
                     {
                         movieForm.ShowDialog();
+                        RefreshData();
                     }
                 }
             }
@@ -220,7 +226,6 @@ namespace Client
                 int idToDelete = ((ResourceBase)dataGridView1.SelectedRows[0].DataBoundItem).Id;
                 if (currentType == typeof(Movie))
                 {
-
                     processObject.MovieClient.DeleteMovie(idToDelete);
                 }
                 downloadedData = downloadedData.Where(p => p.Id != idToDelete).ToList();

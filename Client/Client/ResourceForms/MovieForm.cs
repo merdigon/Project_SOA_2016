@@ -19,11 +19,16 @@ namespace Client.ResourceForms
         Movie InputData { get; set; }
         ProcessObject ProcessObject { get; set; }
 
+        public Movie ResultObject { get; set; }
+
+        FormType FormType { get; set; }
+
         public MovieForm(Movie input, FormType formType, ProcessObject processObject)
         {
             InitializeComponent();
+            ProcessObject = processObject;
             InputData = input ?? new Movie();
-            Text = (formType == FormType.ADD ? "Dodaj film" : "Edytuj film");
+            FormType = formType;
             FillForm();
         }
 
@@ -36,7 +41,13 @@ namespace Client.ResourceForms
             tbYear.Text = InputData.Year.ToString();
             tbDirector.Text = (InputData.Director != null ? InputData.Director.ToString() : string.Empty);
             actorGridView.DataSource = InputData.Actors ?? new List<Actor>();
+            cbGenre.DataSource = ProcessObject.MovieClient.GetAllGenres();
+            if (InputData.Genre != null)
+                cbGenre.SelectedIndex = cbGenre.Items.IndexOf(InputData.Genre);
+            else
+                cbGenre.SelectedIndex = -1;
             btnRefreshImage_Click(null, null);
+            Text = (FormType == FormType.ADD ? "Dodaj film" : "Edytuj film");
         }
 
         public override void CommitClick()
@@ -53,7 +64,19 @@ namespace Client.ResourceForms
                 throw new Exception("Podany rok jest błędny!");
 
             tbDirector.Text = (InputData.Director != null ? InputData.Director.ToString() : string.Empty);
-            InputData.Actors = (List<Actor>)actorGridView.DataSource;  
+            InputData.Actors = (List<Actor>)actorGridView.DataSource;
+
+            if (FormType == FormType.ADD)
+            {
+                ProcessObject.MovieClient.AddMovie(InputData);
+                ResultObject = InputData;
+            }
+            else if (FormType == FormType.EDIT)
+            {
+                ProcessObject.MovieClient.UpdateMovie(InputData);
+                ResultObject = InputData;
+            }
+
             this.Close();
         }
 
@@ -61,6 +84,7 @@ namespace Client.ResourceForms
         {
             using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Actor)))
             {
+                chooser.Text = "Wybierz aktorów";
                 chooser.ShowDialog();
                 ResourceBase result = chooser.ResultObject;
                 if (result != null && result is Actor)
@@ -81,6 +105,7 @@ namespace Client.ResourceForms
         {
             using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Director)))
             {
+                chooser.Text = "Wybierz reżysera";
                 chooser.ShowDialog();
                 ResourceBase result = chooser.ResultObject;
                 if (result != null && result is Director)
@@ -93,9 +118,12 @@ namespace Client.ResourceForms
 
         private void btnRefreshImage_Click(object sender, EventArgs e)
         {
-            var wc = new WebClient();
-            Image x = Image.FromStream(wc.OpenRead(tbImageUri.Text));
-            pbMoviePicture.Image = x;
+            if (!string.IsNullOrEmpty(tbImageUri.Text))
+            {
+                var wc = new WebClient();
+                Image x = Image.FromStream(wc.OpenRead(tbImageUri.Text));
+                pbMoviePicture.Image = x;
+            }
         }
     }
 }
