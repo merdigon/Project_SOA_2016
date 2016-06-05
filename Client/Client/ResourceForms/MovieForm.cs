@@ -43,11 +43,32 @@ namespace Client.ResourceForms
             actorGridView.DataSource = InputData.Actors ?? new List<Actor>();
             cbGenre.DataSource = ProcessObject.MovieClient.GetAllGenres();
             if (InputData.Genre != null)
-                cbGenre.SelectedIndex = cbGenre.Items.IndexOf(InputData.Genre);
+                cbGenre.SelectedItem = InputData.Genre;
             else
                 cbGenre.SelectedIndex = -1;
             btnRefreshImage_Click(null, null);
-            Text = (FormType == FormType.ADD ? "Dodaj film" : "Edytuj film");
+            Text = (FormType == FormType.ADD ? "Dodaj film" : (FormType == FormType.EDIT ? "Edytuj film" : "Info"));
+            if (FormType == FormType.INFO)
+            {
+                tbCountry.ReadOnly = true;
+                tbDescription.ReadOnly = true;
+                tbImageUri.ReadOnly = true;
+                tbTitle.ReadOnly = true;
+                tbYear.ReadOnly = true;
+                btnAddActor.Visible = false;
+                btnDeleteActor.Visible = false;
+                btnSetDirector.Visible = false;
+                btnDeleteDirector.Visible = false;
+                btnRefreshImage.Visible = false;
+                cbGenre.Enabled = false;
+                base.btnCommit_ChangeVisibility(false);
+                base.btnCancel_ChangeImage(Properties.Resources.Actions_dialog_ok_apply_icon);
+                base.btnCancel_ChangeName("Ok");
+            }
+            else
+            {
+                btnShowReviews.Visible = false;
+            }
         }
 
         public override void CommitClick()

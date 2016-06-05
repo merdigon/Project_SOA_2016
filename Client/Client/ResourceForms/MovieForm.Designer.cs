@@ -257,7 +257,7 @@
             // 
             this.btnShowReviews.Location = new System.Drawing.Point(521, 325);
             this.btnShowReviews.Name = "btnShowReviews";
-            this.btnShowReviews.Size = new System.Drawing.Size(75, 23);
+            this.btnShowReviews.Size = new System.Drawing.Size(158, 50);
             this.btnShowReviews.TabIndex = 26;
             this.btnShowReviews.Text = "Review";
             this.btnShowReviews.UseVisualStyleBackColor = true;

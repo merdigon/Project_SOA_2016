@@ -29,8 +29,9 @@ namespace Client.ResourceForms.Base
 
         private List<ResourceBase> GetResource(string name)
         {
-            return new List<Actor>(){ new Actor() { Id = 1, Name ="Johny", Surname="Deep" }, 
-                new Actor(){ Id = 2, Name="Morgan", Surname="Freeman"}}.Select(p => (ResourceBase)p).ToList();
+            return null;
+            //return new List<Actor>(){ new Actor() { Id = 1, Name ="Johny", Surname="Deep" }, 
+            //    new Actor(){ Id = 2, Name="Morgan", Surname="Freeman"}}.Select(p => (ResourceBase)p).ToList();
         }
 
         private void btnChoose_Click(object sender, EventArgs e)

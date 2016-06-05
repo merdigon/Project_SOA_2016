@@ -75,7 +75,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.Button btnCancel;
+        protected System.Windows.Forms.Button btnSave;
     }
 }

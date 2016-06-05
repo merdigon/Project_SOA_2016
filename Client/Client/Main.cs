@@ -34,8 +34,8 @@ namespace Client
         {
             toolStripComboBox1.ComboBox.DataSource = new List<SoaResourceModel>()
             {
-                new SoaResourceModel() {ShowableName = "Film", DataBindedType = typeof(Movie)},
-                new SoaResourceModel() {ShowableName = "Review", DataBindedType = typeof(Review)},
+                new SoaResourceModel() {ShowableName = "Movie", DataBindedType = typeof(Movie)},
+                new SoaResourceModel() {ShowableName = "User", DataBindedType = typeof(User)},
                 new SoaResourceModel() {ShowableName = "Actor", DataBindedType = typeof(Actor)},
                 new SoaResourceModel() {ShowableName = "Director", DataBindedType = typeof(Director)},
             };
@@ -186,6 +186,42 @@ namespace Client
                     }
                 }
             }
+            else if (typeForOperation == typeof(Actor))
+            {
+                using (ActorForm movieForm = new ActorForm(new Actor(), ResourceForms.Base.FormType.ADD, processObject))
+                {
+                    movieForm.ShowDialog();
+                    if (movieForm.ResultObject != null)
+                    {
+                        downloadedData.Add((ResourceBase)movieForm.ResultObject);
+                        RefreshData();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(Director))
+            {
+                using (DirectorForm movieForm = new DirectorForm(new Director(), ResourceForms.Base.FormType.ADD, processObject))
+                {
+                    movieForm.ShowDialog();
+                    if (movieForm.ResultObject != null)
+                    {
+                        downloadedData.Add((ResourceBase)movieForm.ResultObject);
+                        RefreshData();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(User))
+            {
+                using (UserForm movieForm = new UserForm(new User(), ResourceForms.Base.FormType.ADD, processObject))
+                {
+                    movieForm.ShowDialog();
+                    if (movieForm.ResultObject != null)
+                    {
+                        downloadedData.Add((ResourceBase)movieForm.ResultObject);
+                        RefreshData();
+                    }
+                }
+            }
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
@@ -203,7 +239,42 @@ namespace Client
                     }
                 }
             }
-
+            else if (typeForOperation == typeof(Actor))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    Actor selected = (Actor)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (ActorForm movieForm = new ActorForm(selected, ResourceForms.Base.FormType.EDIT, processObject))
+                    {
+                        movieForm.ShowDialog();
+                        RefreshData();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(Director))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    Director selected = (Director)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (DirectorForm movieForm = new DirectorForm(selected, ResourceForms.Base.FormType.EDIT, processObject))
+                    {
+                        movieForm.ShowDialog();
+                        RefreshData();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(User))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    User selected = (User)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (UserForm movieForm = new UserForm(selected, ResourceForms.Base.FormType.EDIT, processObject))
+                    {
+                        movieForm.ShowDialog();
+                        RefreshData();
+                    }
+                }
+            }
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -211,6 +282,21 @@ namespace Client
             Type currentType = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
 
             if (currentType == typeof(Movie))
+            {
+                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                RefreshData();
+            }
+            else if (currentType == typeof(Actor))
+            {
+                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                RefreshData();
+            }
+            else if (currentType == typeof(Director))
+            {
+                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                RefreshData();
+            }
+            else if (currentType == typeof(User))
             {
                 downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
                 RefreshData();
@@ -228,9 +314,70 @@ namespace Client
                 {
                     processObject.MovieClient.DeleteMovie(idToDelete);
                 }
+                else if (currentType == typeof(Actor))
+                {
+                    processObject.MovieClient.DeleteMovie(idToDelete);
+                }
+                else if (currentType == typeof(Director))
+                {
+                    processObject.MovieClient.DeleteMovie(idToDelete);
+                }
+                else if (currentType == typeof(User))
+                {
+                    processObject.MovieClient.DeleteMovie(idToDelete);
+                }
                 downloadedData = downloadedData.Where(p => p.Id != idToDelete).ToList();
                 RefreshData();
             }            
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Type typeForOperation = ((SoaResourceModel)toolStripComboBox1.ComboBox.SelectedItem).DataBindedType;
+            if (typeForOperation == typeof(Movie))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    Movie selected = (Movie)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (MovieForm movieForm = new MovieForm(selected, ResourceForms.Base.FormType.INFO, processObject))
+                    {
+                        movieForm.ShowDialog();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(Actor))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    Actor selected = (Actor)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (ActorForm movieForm = new ActorForm(selected, ResourceForms.Base.FormType.INFO, processObject))
+                    {
+                        movieForm.ShowDialog();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(Director))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    Director selected = (Director)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (DirectorForm movieForm = new DirectorForm(selected, ResourceForms.Base.FormType.INFO, processObject))
+                    {
+                        movieForm.ShowDialog();
+                    }
+                }
+            }
+            else if (typeForOperation == typeof(User))
+            {
+                if (dataGridView1.SelectedRows != null && dataGridView1.SelectedRows.Count > 0)
+                {
+                    User selected = (User)dataGridView1.SelectedRows[0].DataBoundItem;
+                    using (UserForm movieForm = new UserForm(selected, ResourceForms.Base.FormType.INFO, processObject))
+                    {
+                        movieForm.ShowDialog();
+                    }
+                }
+            }
         }
     }
 }

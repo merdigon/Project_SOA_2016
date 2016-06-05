@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2016-06-05 00:36:02
+// Generation date: 2016-06-05 12:11:03
 namespace Client.Services.Library
 {
     /// <summary>
@@ -53,14 +53,16 @@ namespace Client.Services.Library
         /// <param name="note">Initial value of Note.</param>
         /// <param name="movieID">Initial value of MovieID.</param>
         /// <param name="userID">Initial value of UserID.</param>
+        /// <param name="date">Initial value of Date.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        public static Review CreateReview(int reviewID, int note, int movieID, int userID)
+        public static Review CreateReview(int reviewID, int note, int movieID, int userID, global::System.DateTimeOffset date)
         {
             Review review = new Review();
             review.ReviewID = reviewID;
             review.Note = note;
             review.MovieID = movieID;
             review.UserID = userID;
+            review.Date = date;
             return review;
         }
         /// <summary>
@@ -178,6 +180,29 @@ namespace Client.Services.Library
         private int _UserID;
         partial void OnUserIDChanging(int value);
         partial void OnUserIDChanged();
+        /// <summary>
+        /// There are no comments for Property Date in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Date")]
+        public global::System.DateTimeOffset Date
+        {
+            get
+            {
+                return this._Date;
+            }
+            set
+            {
+                this.OnDateChanging(value);
+                this._Date = value;
+                this.OnDateChanged();
+                this.OnPropertyChanged("Date");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
+        private global::System.DateTimeOffset _Date;
+        partial void OnDateChanging(global::System.DateTimeOffset value);
+        partial void OnDateChanged();
         /// <summary>
         /// This event is raised when the value of the property is changed
         /// </summary>
@@ -339,6 +364,7 @@ namespace Client.Services.Default
         <Property Name=""Note"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""MovieID"" Type=""Edm.Int32"" Nullable=""false"" />
         <Property Name=""UserID"" Type=""Edm.Int32"" Nullable=""false"" />
+        <Property Name=""Date"" Type=""Edm.DateTimeOffset"" Nullable=""false"" />
       </EntityType>
     </Schema>
     <Schema Namespace=""Default"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">

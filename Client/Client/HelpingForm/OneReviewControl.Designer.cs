@@ -30,6 +30,9 @@
         {
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbUserName = new System.Windows.Forms.Label();
+            this.lbNote = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbMessage
@@ -52,6 +55,32 @@
             this.lbUserName.TabIndex = 1;
             this.lbUserName.Text = "label1";
             // 
+            // lbNote
+            // 
+            this.lbNote.Location = new System.Drawing.Point(395, 9);
+            this.lbNote.Name = "lbNote";
+            this.lbNote.Size = new System.Drawing.Size(13, 17);
+            this.lbNote.TabIndex = 2;
+            this.lbNote.Text = "5";
+            // 
+            // lbDate
+            // 
+            this.lbDate.AutoSize = true;
+            this.lbDate.Location = new System.Drawing.Point(213, 9);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(46, 17);
+            this.lbDate.TabIndex = 3;
+            this.lbDate.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Note:";
+            // 
             // OneReviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -59,6 +88,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.lbDate);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbNote);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.tbMessage);
             this.Name = "OneReviewControl";
@@ -73,5 +105,8 @@
 
         private System.Windows.Forms.TextBox tbMessage;
         private System.Windows.Forms.Label lbUserName;
+        private System.Windows.Forms.Label lbNote;
+        private System.Windows.Forms.Label lbDate;
+        private System.Windows.Forms.Label label3;
     }
 }

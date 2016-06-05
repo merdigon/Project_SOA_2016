@@ -33,6 +33,9 @@ namespace Client.HelpingForm
                 else
                     lbUserName.Text = Review.User.ToString();
 
+                lbDate.Text = Review.Date.Substring(0, 16);
+                lbNote.Text = Review.Note.ToString();
+
                 SizeF MessageSize = tbMessage.CreateGraphics()
                                 .MeasureString(tbMessage.Text,
                                                 tbMessage.Font,
