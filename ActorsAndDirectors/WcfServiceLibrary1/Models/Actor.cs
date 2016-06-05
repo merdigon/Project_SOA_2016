@@ -13,6 +13,7 @@ namespace WcfServiceLibrary1.Models
     public class Actor
     {
         [Key]
+        [DataMember]
         public int PersonId { get; set; }
         [DataMember]
         public string Name { get; set; }

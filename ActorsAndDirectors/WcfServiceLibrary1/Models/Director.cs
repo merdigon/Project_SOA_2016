@@ -13,6 +13,7 @@ namespace WcfServiceLibrary1.Models
     class Director
     {
         [Key]
+        [DataMember]
         public int PersonId { get; set; }
         [DataMember]
         public string Name { get; set; }
