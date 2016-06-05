@@ -48,7 +48,8 @@ namespace Client.Services
             Client.DeleteMovie(new soaM.Movie() { MovieID = id });
         }
 
-        public bool UpdateMovie(view.Movie movie){
+        public bool UpdateMovie(view.Movie movie)
+        {
             soaM.Movie movieToUpdate = ProcessObject.Mapper.Map<soaM.Movie>(movie);
             return Client.UpdateMovie(movieToUpdate);
         }

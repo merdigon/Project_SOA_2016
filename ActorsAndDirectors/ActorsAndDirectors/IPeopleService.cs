@@ -4,15 +4,23 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using WcfServiceLibrary1.Models;
+using ActorsAndDirectors.Models;
 
-namespace WcfServiceLibrary1
+namespace ActorsAndDirectors
 {
     [ServiceContract]
     interface IPeopleService
     {
         [OperationContract]
         List<Actor> GetActors();
+
+
+        [OperationContract]
+        Director GetDirector(int id);
+
+
+        [OperationContract]
+        Actor GetActor(int id);
 
         [OperationContract]
         List<Director> GetDirectors();

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PeopleService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ActorsAndDirectors.Models" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPeopleService_GetActors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActors" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetActors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirector" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActor" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirectors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectors" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirectors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_AddActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddActor" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_AddActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_AddDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDirector" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_AddDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_DeleteActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActor" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_DeleteActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_DeleteDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDirector" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_DeleteDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_UpdateActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateActor" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_UpdateActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_UpdateDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDirector" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_UpdateDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetActorsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorsByName" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetActorsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActorsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirectorsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorsByName" />
+  </wsdl:message>
+  <wsdl:message name="IPeopleService_GetDirectorsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDirectorsByNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPeopleService">
+    <wsdl:operation name="GetActors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetActors" message="tns:IPeopleService_GetActors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetActorsResponse" message="tns:IPeopleService_GetActors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetDirector" message="tns:IPeopleService_GetDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetDirectorResponse" message="tns:IPeopleService_GetDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetActor" message="tns:IPeopleService_GetActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetActorResponse" message="tns:IPeopleService_GetActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetDirectors" message="tns:IPeopleService_GetDirectors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetDirectorsResponse" message="tns:IPeopleService_GetDirectors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/AddActor" message="tns:IPeopleService_AddActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/AddActorResponse" message="tns:IPeopleService_AddActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/AddDirector" message="tns:IPeopleService_AddDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/AddDirectorResponse" message="tns:IPeopleService_AddDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/DeleteActor" message="tns:IPeopleService_DeleteActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/DeleteActorResponse" message="tns:IPeopleService_DeleteActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/DeleteDirector" message="tns:IPeopleService_DeleteDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/DeleteDirectorResponse" message="tns:IPeopleService_DeleteDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/UpdateActor" message="tns:IPeopleService_UpdateActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/UpdateActorResponse" message="tns:IPeopleService_UpdateActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/UpdateDirector" message="tns:IPeopleService_UpdateDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/UpdateDirectorResponse" message="tns:IPeopleService_UpdateDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActorsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetActorsByName" message="tns:IPeopleService_GetActorsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetActorsByNameResponse" message="tns:IPeopleService_GetActorsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectorsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPeopleService/GetDirectorsByName" message="tns:IPeopleService_GetDirectorsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPeopleService/GetDirectorsByNameResponse" message="tns:IPeopleService_GetDirectorsByName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPeopleService" type="tns:IPeopleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActors">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirector">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActor">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectors">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetDirectors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActor">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/AddActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDirector">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/AddDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActor">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/DeleteActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDirector">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/DeleteDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActor">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/UpdateActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDirector">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/UpdateDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorsByName">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetActorsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectorsByName">
+      <soap:operation soapAction="http://tempuri.org/IPeopleService/GetDirectorsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PeopleService">
+    <wsdl:port name="BasicHttpBinding_IPeopleService" binding="tns:BasicHttpBinding_IPeopleService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ActorsAndDirectors/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

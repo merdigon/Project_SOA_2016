@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WcfServiceLibrary1.DAL;
-using WcfServiceLibrary1.Models;
+using ActorsAndDirectors.DAL;
+using ActorsAndDirectors.Models;
 
-namespace WcfServiceLibrary1
+namespace ActorsAndDirectors
 {
     class PeopleService : IPeopleService
     {
@@ -114,6 +114,17 @@ namespace WcfServiceLibrary1
             {
                 return null;
             }
+        }
+
+
+        public Director GetDirector(int id)
+        {
+            return db.Directors.Where(x => x.PersonId == id).FirstOrDefault();
+        }
+
+        public Actor GetActor(int id)
+        {
+            return db.Actors.Where(x => x.PersonId == id).FirstOrDefault();
         }
     }
 }

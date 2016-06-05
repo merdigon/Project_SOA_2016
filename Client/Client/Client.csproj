@@ -142,6 +142,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PeopleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PeopleSOAClient.cs" />
     <Compile Include="Services\MovieSOAClient.cs" />
     <Compile Include="Services\ReviewReference.cs">
       <AutoGen>True</AutoGen>
@@ -222,6 +228,22 @@
     <None Include="Service References\MovieService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PeopleService\ActorsAndDirectors.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PeopleService\Client.PeopleService.Actor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PeopleService\Client.PeopleService.Director.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PeopleService\service.wsdl" />
+    <None Include="Service References\PeopleService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PeopleService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Services\ReviewReference.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ReviewReference.cs</LastGenOutput>
@@ -254,6 +276,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MovieService\" />
+    <WCFMetadataStorage Include="Service References\PeopleService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MovieService\configuration91.svcinfo" />
@@ -281,6 +304,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PeopleService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PeopleService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PeopleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

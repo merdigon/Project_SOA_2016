@@ -288,12 +288,12 @@ namespace Client
             }
             else if (currentType == typeof(Actor))
             {
-                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                downloadedData = processObject.PeopleClient.GetActorsByName(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
                 RefreshData();
             }
             else if (currentType == typeof(Director))
             {
-                downloadedData = processObject.MovieClient.GetMoviesByTitlePart(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
+                downloadedData = processObject.PeopleClient.GetDirectorsByName(toolStripTextBox1.Text).Select(p => (ResourceBase)p).ToList();
                 RefreshData();
             }
             else if (currentType == typeof(User))
@@ -316,11 +316,11 @@ namespace Client
                 }
                 else if (currentType == typeof(Actor))
                 {
-                    processObject.MovieClient.DeleteMovie(idToDelete);
+                    processObject.PeopleClient.DeleteActor(idToDelete);
                 }
                 else if (currentType == typeof(Director))
                 {
-                    processObject.MovieClient.DeleteMovie(idToDelete);
+                    processObject.PeopleClient.DeleteDirector(idToDelete);
                 }
                 else if (currentType == typeof(User))
                 {

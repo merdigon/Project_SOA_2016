@@ -7,10 +7,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WcfServiceLibrary1.Models
+namespace ActorsAndDirectors.Models
 {
     [DataContract]
-    public class Actor
+    class Director
     {
         [Key]
         [DataMember]
@@ -32,6 +32,7 @@ namespace WcfServiceLibrary1.Models
         [DataMember]
         public bool Alive { get; set; }
 
+        [DataMember]
         [ForeignKey("Movie")]
         public List<int> MovieId { get; set; }
     }

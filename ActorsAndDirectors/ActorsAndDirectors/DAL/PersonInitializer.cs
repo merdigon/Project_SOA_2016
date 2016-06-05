@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using WcfServiceLibrary1.Models;
+using ActorsAndDirectors.Models;
 
-namespace WcfServiceLibrary1.DAL
+namespace ActorsAndDirectors.DAL
 {
     class PersonInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<PersonContext>
     {

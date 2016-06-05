@@ -110,16 +110,18 @@ namespace Client.ResourceForms
 
         private void btnAddActor_Click(object sender, EventArgs e)
         {
-            using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Actor)))
+            using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Actor), ProcessObject))
             {
                 chooser.Text = "Wybierz aktorów";
                 chooser.ShowDialog();
                 ResourceBase result = chooser.ResultObject;
-                if (result != null && result is Actor)
+                if (result != null && result is ActorViewModel)
                 {
                     List<ActorViewModel> currentList = (List<ActorViewModel>)actorGridView.DataSource ?? new List<ActorViewModel>();
                     currentList.Add((ActorViewModel)result);
+                    actorGridView.DataSource = null;
                     actorGridView.DataSource = currentList;
+                    actorGridView.Refresh();
                 }
             }
         }
@@ -131,7 +133,7 @@ namespace Client.ResourceForms
 
         private void btnSetDirector_Click(object sender, EventArgs e)
         {
-            using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Director)))
+            using (ResourceChooserForm chooser = new ResourceChooserForm(typeof(Director), ProcessObject))
             {
                 chooser.Text = "Wybierz reżysera";
                 chooser.ShowDialog();

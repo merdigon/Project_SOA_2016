@@ -16,10 +16,16 @@ namespace Client.Models
         public int Year { get; set; }
 
         public Director Director { get; set; }
+
+        [Browsable(false)]
+        public int DirectorID { get; set; }
         
         public string Country { get; set; }
         
         public Genre Genre { get; set; }
+
+        [Browsable(false)]
+        public List<int> ActorsID { get; set; }
 
         public List<Actor> Actors { get; set; }
 
