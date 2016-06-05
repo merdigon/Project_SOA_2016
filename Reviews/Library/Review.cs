@@ -15,5 +15,6 @@ namespace Library
         public int Note { get; set; }
         public int MovieID { get; set; }
         public int UserID { get; set; }
+        public DateTime Date { get; set; }
     }
 }
