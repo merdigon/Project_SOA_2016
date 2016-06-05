@@ -18,10 +18,10 @@ namespace WcfServiceLibrary1
         List<Director> GetDirectors();
 
         [OperationContract]
-        bool AddActor(Actor a);
+        Actor AddActor(Actor a);
 
         [OperationContract]
-        bool AddDirector(Director d);
+        Director AddDirector(Director d);
 
         [OperationContract]
         void DeleteActor(Actor a);
@@ -34,5 +34,11 @@ namespace WcfServiceLibrary1
 
         [OperationContract]
         bool UpdateDirector(Director d);
+
+        [OperationContract]
+        List<Actor> GetActorsByName(string s);
+
+        [OperationContract]
+        List<Director> GetDirectorsByName(string s);
     }
 }

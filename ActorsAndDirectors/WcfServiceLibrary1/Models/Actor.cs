@@ -13,16 +13,15 @@ namespace WcfServiceLibrary1.Models
         [Key]
         public int PersonId { get; set; }
         public string Name { get; set; }
-        public string Number { get; set; }
         public string Gender { get; set; }
         public string RealName { get; set; }
         public string MaritalStatus { get; set; }
         public int Height { get; set; }
         public string PlaceOfBirth { get; set; }
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public bool Alive { get; set; }
 
         [ForeignKey("Movie")]
-        public int MovieId { get; set; }
+        public List<int> MovieId { get; set; }
     }
 }
