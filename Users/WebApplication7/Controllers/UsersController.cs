@@ -161,5 +161,19 @@ namespace WebApplication7.Controllers
         {
             return db.Users.Count(e => e.UserId == key) > 0;
         }
+
+        private bool UserExists(string nick)
+        {
+            return db.Users.Any(x => x.Nick == nick);
+        }
+
+        private bool CorrectPassword(string nick, string password)
+        {
+            if (UserExists(nick))
+            {
+                return db.Users.Contains(x => x.Nick == nick, x.Password == password);
+            }
+            return false;
+        }
     }
 }
