@@ -121,12 +121,12 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "City:";
             // 
-            // lbActorName
+            // lbUserName
             // 
             this.lbUserName.AutoSize = true;
             this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lbUserName.Location = new System.Drawing.Point(166, 26);
-            this.lbUserName.Name = "lbActorName";
+            this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(109, 39);
             this.lbUserName.TabIndex = 22;
             this.lbUserName.Text = "label4";
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 301);
+            this.ClientSize = new System.Drawing.Size(467, 301);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.tbCity);
             this.Controls.Add(this.label9);
@@ -147,8 +147,11 @@
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.tbNick);
             this.Controls.Add(this.lbNick);
+            this.MaximumSize = new System.Drawing.Size(489, 350);
             this.Name = "UserForm";
             this.Text = "ActorForm";
+            this.Controls.SetChildIndex(this.btnCancel, 0);
+            this.Controls.SetChildIndex(this.btnSave, 0);
             this.Controls.SetChildIndex(this.lbNick, 0);
             this.Controls.SetChildIndex(this.tbNick, 0);
             this.Controls.SetChildIndex(this.lbPassword, 0);

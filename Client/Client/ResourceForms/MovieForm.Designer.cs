@@ -51,18 +51,24 @@
             this.btnRefreshImage = new System.Windows.Forms.Button();
             this.tbYear = new System.Windows.Forms.TextBox();
             this.btnShowReviews = new System.Windows.Forms.Button();
+            this.lbAver = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pbStars = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.actorGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoviePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStars)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 61);
+            this.label1.Location = new System.Drawing.Point(45, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Tytuł:";
+            this.label1.Text = "Title:";
             // 
             // tbTitle
             // 
@@ -83,20 +89,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 89);
+            this.label2.Location = new System.Drawing.Point(1, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Opis:";
+            this.label2.Text = "Description:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 239);
+            this.label3.Location = new System.Drawing.Point(42, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 17);
+            this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Rok:";
+            this.label3.Text = "Year:";
             // 
             // actorGridView
             // 
@@ -132,18 +138,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(27, 404);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Aktorzy:";
+            this.label4.Text = "Actors:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 267);
+            this.label5.Location = new System.Drawing.Point(32, 267);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 17);
+            this.label5.Size = new System.Drawing.Size(52, 17);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Gatunek:";
+            this.label5.Text = "Genre:";
             // 
             // cbGenre
             // 
@@ -163,20 +169,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 297);
+            this.label6.Location = new System.Drawing.Point(23, 297);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 17);
+            this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Kraj:";
+            this.label6.Text = "Country:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 324);
+            this.label7.Location = new System.Drawing.Point(22, 327);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 17);
+            this.label7.Size = new System.Drawing.Size(62, 17);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Reżyser:";
+            this.label7.Text = "Director:";
             // 
             // tbDirector
             // 
@@ -227,11 +233,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 358);
+            this.label8.Location = new System.Drawing.Point(7, 358);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 17);
+            this.label8.Size = new System.Drawing.Size(77, 17);
             this.label8.TabIndex = 22;
-            this.label8.Text = "URI obrazka:";
+            this.label8.Text = "Image URI:";
             // 
             // btnRefreshImage
             // 
@@ -239,9 +245,10 @@
             this.btnRefreshImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRefreshImage.Location = new System.Drawing.Point(521, 275);
             this.btnRefreshImage.Name = "btnRefreshImage";
+            this.btnRefreshImage.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnRefreshImage.Size = new System.Drawing.Size(158, 41);
             this.btnRefreshImage.TabIndex = 24;
-            this.btnRefreshImage.Text = "Aktualizuj obrazek";
+            this.btnRefreshImage.Text = "Refresh Image";
             this.btnRefreshImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefreshImage.UseVisualStyleBackColor = true;
             this.btnRefreshImage.Click += new System.EventHandler(this.btnRefreshImage_Click);
@@ -255,19 +262,64 @@
             // 
             // btnShowReviews
             // 
+            this.btnShowReviews.Image = global::Client.Properties.Resources.Notes_icon;
+            this.btnShowReviews.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnShowReviews.Location = new System.Drawing.Point(521, 325);
             this.btnShowReviews.Name = "btnShowReviews";
+            this.btnShowReviews.Padding = new System.Windows.Forms.Padding(10, 0, 30, 0);
             this.btnShowReviews.Size = new System.Drawing.Size(158, 50);
             this.btnShowReviews.TabIndex = 26;
             this.btnShowReviews.Text = "Review";
+            this.btnShowReviews.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnShowReviews.UseVisualStyleBackColor = true;
             this.btnShowReviews.Click += new System.EventHandler(this.btnShowReviews_Click);
+            // 
+            // lbAver
+            // 
+            this.lbAver.AutoSize = true;
+            this.lbAver.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.lbAver.Location = new System.Drawing.Point(555, 448);
+            this.lbAver.Name = "lbAver";
+            this.lbAver.Size = new System.Drawing.Size(63, 69);
+            this.lbAver.TabIndex = 27;
+            this.lbAver.Text = "5";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(496, 422);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 17);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Average note:";
+            // 
+            // pbStars
+            // 
+            this.pbStars.Image = global::Client.Properties.Resources.stars;
+            this.pbStars.Location = new System.Drawing.Point(0, 0);
+            this.pbStars.Name = "pbStars";
+            this.pbStars.Size = new System.Drawing.Size(200, 40);
+            this.pbStars.TabIndex = 29;
+            this.pbStars.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pbStars);
+            this.panel1.Location = new System.Drawing.Point(479, 530);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 40);
+            this.panel1.TabIndex = 30;
             // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 586);
+            this.ClientSize = new System.Drawing.Size(689, 582);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lbAver);
             this.Controls.Add(this.btnShowReviews);
             this.Controls.Add(this.tbYear);
             this.Controls.Add(this.btnRefreshImage);
@@ -291,8 +343,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(711, 631);
             this.Name = "MovieForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.tbTitle, 0);
@@ -317,8 +369,15 @@
             this.Controls.SetChildIndex(this.btnRefreshImage, 0);
             this.Controls.SetChildIndex(this.tbYear, 0);
             this.Controls.SetChildIndex(this.btnShowReviews, 0);
+            this.Controls.SetChildIndex(this.lbAver, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.panel1, 0);
+            this.Controls.SetChildIndex(this.btnCancel, 0);
+            this.Controls.SetChildIndex(this.btnSave, 0);
             ((System.ComponentModel.ISupportInitialize)(this.actorGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoviePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStars)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,5 +408,9 @@
         private System.Windows.Forms.Button btnRefreshImage;
         private System.Windows.Forms.TextBox tbYear;
         private System.Windows.Forms.Button btnShowReviews;
+        private System.Windows.Forms.Label lbAver;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pbStars;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -10,6 +10,7 @@ namespace Client.Models
 {
     public class ResourceBase
     {
+        [Browsable(false)]
         public int Id { get; set; }
         public static string GetPropertyDisplayName(string propertyName, Type type)
         {

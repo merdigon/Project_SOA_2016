@@ -40,7 +40,7 @@ namespace Client.ResourceForms
             cbGender.DataSource = Genders();
             cbMStatus.DataSource = MaritalStatuses();
             lbActorName.Text = InputActor.ToString();
-            Text = (FormType == FormType.ADD ? "Dodaj aktora" : (FormType == FormType.EDIT ? "Edytuj aktora" : "Info"));
+            Text = (FormType == FormType.ADD ? "Add actor" : (FormType == FormType.EDIT ? "Edit actor" : "Info"));
             if (InputActor.Gender != null)
                 cbGender.SelectedItem = InputActor.Gender;
             else
