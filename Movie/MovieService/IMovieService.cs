@@ -30,6 +30,12 @@ namespace MoviesService
         List<Movie> GetMoviesByYear(int year);
 
         [OperationContract]
+        List<Movie> GetMoviesByDirector(int id);
+
+        [OperationContract]
+        List<Movie> GetMoviesByActor(int id);
+
+        [OperationContract]
         Movie AddMovie(Movie movie);
 
         [OperationContract]

@@ -42,6 +42,16 @@ namespace MoviesService
             return db.Movies.Include("Genre").Where(x => x.Year == year).ToList();
         }
 
+        public List<Movie> GetMoviesByDirector(int id)
+        {
+            return db.Movies.Include("Genre").Where(x => x.DirectorID == id).ToList();
+        }
+
+        public List<Movie> GetMoviesByActor(int id)
+        {
+            return db.Movies.Include("Genre").Where(x => x.ActorIDs.Contains(id)).ToList();
+        }
+
 
         public Movie AddMovie(Movie movie)
         {
