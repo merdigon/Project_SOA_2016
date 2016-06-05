@@ -49,7 +49,8 @@ namespace Client.ResourceForms
                 Content = tbContent.Text,
                 Movie = currentMovie,
                 User = processObject.LoggedUser,
-                Note = (int)cbNode.SelectedItem
+                Note = (int)cbNode.SelectedItem,
+                Date = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
             };
             processObject.ReviewClient.AddReview(newReview);
             RefreshData();

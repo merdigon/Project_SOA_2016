@@ -49,6 +49,10 @@ namespace Client.ResourceForms.Base
         {
             btnCancel.Image = image;
         }
+        protected void btnCommit_ChangeVisibility(bool visible)
+        {
+            btnSave.Visible = visible;
+        }
 
         protected void btnCommit_ChangeImage(Image image)
         {

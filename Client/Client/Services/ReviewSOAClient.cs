@@ -26,7 +26,8 @@ namespace Client.Services
         public List<view.Review> GetReviewsForMovie(int movieId)
         {
             var soaReviewList = container.Reviews.Where(p => p.MovieID == movieId).ToList();
-            return soaReviewList.Select(p => ProcessObject.Mapper.Map<view.Review>(p)).ToList();
+            var viewList = soaReviewList.Select(p => ProcessObject.Mapper.Map<view.Review>(p)).ToList();
+            return viewList;
         }
 
         public view.Review AddReview(view.Review review)
