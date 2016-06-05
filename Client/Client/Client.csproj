@@ -36,6 +36,22 @@
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.OData.Client, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Client.6.13.0\lib\net40\Microsoft.OData.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -56,6 +72,12 @@
     <Compile Include="HelpingForm\ChooseFilterForm.Designer.cs">
       <DependentUpon>ChooseFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpingForm\OneReviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelpingForm\OneReviewControl.Designer.cs">
+      <DependentUpon>OneReviewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +90,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\ResourceBase.cs" />
     <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="ProcessObjects\GridViewManager.cs" />
     <Compile Include="ProcessObjects\ProcessObject.cs" />
     <Compile Include="Program.cs" />
@@ -90,12 +113,24 @@
     <Compile Include="ResourceForms\Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResourceForms\ReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResourceForms\ReviewForm.Designer.cs">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service References\MovieService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\MovieSOAClient.cs" />
+    <Compile Include="Services\ReviewReference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReviewReference.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ReviewSOAClient.cs" />
     <Compile Include="Translators\GenreTranslator.cs" />
     <Compile Include="Translators\ITranslator.cs" />
     <Compile Include="Translators\MovieTranslator.cs" />
@@ -103,6 +138,9 @@
     <Compile Include="ViewModel\SoaResourceModel.cs" />
     <EmbeddedResource Include="HelpingForm\ChooseFilterForm.resx">
       <DependentUpon>ChooseFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpingForm\OneReviewControl.resx">
+      <DependentUpon>OneReviewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -125,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ResourceForms\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceForms\ReviewForm.resx">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -152,6 +193,11 @@
     <None Include="Service References\MovieService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Services\ReviewReference.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReviewReference.cs</LastGenOutput>
+    </None>
+    <None Include="Services\ReviewReference.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -194,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hadezign-Hobbies-Movies.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -125,5 +125,14 @@ namespace Client.ResourceForms
                 pbMoviePicture.Image = x;
             }
         }
+
+        private void btnShowReviews_Click(object sender, EventArgs e)
+        {
+            List<Review> reviewList = ProcessObject.ReviewClient.GetReviewsForMovie(InputData.Id);
+            using (ReviewForm reviewForm = new ReviewForm(reviewList, InputData, ProcessObject))
+            {
+                reviewForm.ShowDialog();
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnRefreshImage = new System.Windows.Forms.Button();
             this.tbYear = new System.Windows.Forms.TextBox();
+            this.btnShowReviews = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.actorGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoviePicture)).BeginInit();
             this.SuspendLayout();
@@ -144,11 +145,11 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Gatunek:";
             // 
-            // cbGentre
+            // cbGenre
             // 
             this.cbGenre.FormattingEnabled = true;
             this.cbGenre.Location = new System.Drawing.Point(100, 264);
-            this.cbGenre.Name = "cbGentre";
+            this.cbGenre.Name = "cbGenre";
             this.cbGenre.Size = new System.Drawing.Size(359, 24);
             this.cbGenre.TabIndex = 13;
             // 
@@ -236,7 +237,7 @@
             // 
             this.btnRefreshImage.Image = global::Client.Properties.Resources.Actions_dialog_ok_apply_icon;
             this.btnRefreshImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefreshImage.Location = new System.Drawing.Point(520, 275);
+            this.btnRefreshImage.Location = new System.Drawing.Point(521, 275);
             this.btnRefreshImage.Name = "btnRefreshImage";
             this.btnRefreshImage.Size = new System.Drawing.Size(158, 41);
             this.btnRefreshImage.TabIndex = 24;
@@ -252,11 +253,22 @@
             this.tbYear.Size = new System.Drawing.Size(359, 22);
             this.tbYear.TabIndex = 25;
             // 
+            // btnShowReviews
+            // 
+            this.btnShowReviews.Location = new System.Drawing.Point(521, 325);
+            this.btnShowReviews.Name = "btnShowReviews";
+            this.btnShowReviews.Size = new System.Drawing.Size(75, 23);
+            this.btnShowReviews.TabIndex = 26;
+            this.btnShowReviews.Text = "Review";
+            this.btnShowReviews.UseVisualStyleBackColor = true;
+            this.btnShowReviews.Click += new System.EventHandler(this.btnShowReviews_Click);
+            // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 586);
+            this.Controls.Add(this.btnShowReviews);
             this.Controls.Add(this.tbYear);
             this.Controls.Add(this.btnRefreshImage);
             this.Controls.Add(this.tbImageUri);
@@ -304,6 +316,7 @@
             this.Controls.SetChildIndex(this.tbImageUri, 0);
             this.Controls.SetChildIndex(this.btnRefreshImage, 0);
             this.Controls.SetChildIndex(this.tbYear, 0);
+            this.Controls.SetChildIndex(this.btnShowReviews, 0);
             ((System.ComponentModel.ISupportInitialize)(this.actorGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoviePicture)).EndInit();
             this.ResumeLayout(false);
@@ -335,5 +348,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnRefreshImage;
         private System.Windows.Forms.TextBox tbYear;
+        private System.Windows.Forms.Button btnShowReviews;
     }
 }

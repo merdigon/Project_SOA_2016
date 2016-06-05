@@ -93,6 +93,9 @@ namespace Client.MovieService {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DirectorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Client.MovieService.Genre GenreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -149,6 +152,19 @@ namespace Client.MovieService {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DirectorID {
+            get {
+                return this.DirectorIDField;
+            }
+            set {
+                if ((this.DirectorIDField.Equals(value) != true)) {
+                    this.DirectorIDField = value;
+                    this.RaisePropertyChanged("DirectorID");
                 }
             }
         }
@@ -256,16 +272,16 @@ namespace Client.MovieService {
         System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByYearAsync(int year);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/AddMovie", ReplyAction="http://tempuri.org/IMovieService/AddMovieResponse")]
-        bool AddMovie(Client.MovieService.Movie movie);
+        Client.MovieService.Movie AddMovie(Client.MovieService.Movie movie);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/AddMovie", ReplyAction="http://tempuri.org/IMovieService/AddMovieResponse")]
-        System.Threading.Tasks.Task<bool> AddMovieAsync(Client.MovieService.Movie movie);
+        System.Threading.Tasks.Task<Client.MovieService.Movie> AddMovieAsync(Client.MovieService.Movie movie);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/AddGenre", ReplyAction="http://tempuri.org/IMovieService/AddGenreResponse")]
-        bool AddGenre(Client.MovieService.Genre genre);
+        Client.MovieService.Genre AddGenre(Client.MovieService.Genre genre);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/AddGenre", ReplyAction="http://tempuri.org/IMovieService/AddGenreResponse")]
-        System.Threading.Tasks.Task<bool> AddGenreAsync(Client.MovieService.Genre genre);
+        System.Threading.Tasks.Task<Client.MovieService.Genre> AddGenreAsync(Client.MovieService.Genre genre);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/DeleteMovie", ReplyAction="http://tempuri.org/IMovieService/DeleteMovieResponse")]
         void DeleteMovie(Client.MovieService.Movie movie);
@@ -367,19 +383,19 @@ namespace Client.MovieService {
             return base.Channel.GetMoviesByYearAsync(year);
         }
         
-        public bool AddMovie(Client.MovieService.Movie movie) {
+        public Client.MovieService.Movie AddMovie(Client.MovieService.Movie movie) {
             return base.Channel.AddMovie(movie);
         }
         
-        public System.Threading.Tasks.Task<bool> AddMovieAsync(Client.MovieService.Movie movie) {
+        public System.Threading.Tasks.Task<Client.MovieService.Movie> AddMovieAsync(Client.MovieService.Movie movie) {
             return base.Channel.AddMovieAsync(movie);
         }
         
-        public bool AddGenre(Client.MovieService.Genre genre) {
+        public Client.MovieService.Genre AddGenre(Client.MovieService.Genre genre) {
             return base.Channel.AddGenre(genre);
         }
         
-        public System.Threading.Tasks.Task<bool> AddGenreAsync(Client.MovieService.Genre genre) {
+        public System.Threading.Tasks.Task<Client.MovieService.Genre> AddGenreAsync(Client.MovieService.Genre genre) {
             return base.Channel.AddGenreAsync(genre);
         }
         

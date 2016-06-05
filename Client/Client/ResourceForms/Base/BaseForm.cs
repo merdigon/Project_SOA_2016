@@ -35,6 +35,25 @@ namespace Client.ResourceForms.Base
         {
             CancelClick();
         }
+
+        protected void btnCancel_ChangeName(string name){
+            btnCancel.Text = name;
+    }
+
+        protected void btnCommit_ChangeName(string name)
+        {
+            btnSave.Text = name;
+        }
+
+        protected void btnCancel_ChangeImage(Image image)
+        {
+            btnCancel.Image = image;
+        }
+
+        protected void btnCommit_ChangeImage(Image image)
+        {
+            btnSave.Image = image;
+        }
     }
 
     public enum FormType

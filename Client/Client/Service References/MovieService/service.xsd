@@ -91,28 +91,28 @@
   <xs:element name="AddMovieResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddMovieResult" type="xs:boolean" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="AddMovieResult" nillable="true" type="q9:Movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddGenre">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q9:Genre" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q10:Genre" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddGenreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddGenreResult" type="xs:boolean" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="AddGenreResult" nillable="true" type="q11:Genre" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteMovie">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="movie" nillable="true" type="q10:Movie" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="movie" nillable="true" type="q12:Movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +124,7 @@
   <xs:element name="DeleteGenre">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q11:Genre" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q13:Genre" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +136,7 @@
   <xs:element name="UpdateMovie">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="movie" nillable="true" type="q12:Movie" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="movie" nillable="true" type="q14:Movie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -150,7 +150,7 @@
   <xs:element name="UpdateGenre">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q13:Genre" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MoviesService.Models" minOccurs="0" name="genre" nillable="true" type="q15:Genre" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

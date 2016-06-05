@@ -56,8 +56,7 @@ namespace Client.Services
         public view.Movie AddMovie(view.Movie movie)
         {
             soaM.Movie movieToUpdate = ProcessObject.Mapper.Map<soaM.Movie>(movie);
-            bool result = Client.AddMovie(movieToUpdate);
-            return new view.Movie();
+            return ProcessObject.Mapper.Map<view.Movie>(Client.AddMovie(movieToUpdate));
         }
     }
 }

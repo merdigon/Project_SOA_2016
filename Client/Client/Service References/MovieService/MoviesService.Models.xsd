@@ -24,6 +24,7 @@
       <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CoverURI" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirectorID" type="xs:int" />
       <xs:element minOccurs="0" name="Genre" nillable="true" type="tns:Genre" />
       <xs:element minOccurs="0" name="MovieID" type="xs:int" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
