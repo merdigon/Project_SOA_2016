@@ -1,6 +1,7 @@
 ﻿using Client.Models;
 using Client.ProcessObjects;
 using Client.ResourceForms.Base;
+using Client.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,14 +41,14 @@ namespace Client.ResourceForms
             tbImageUri.Text = InputData.CoverURI;
             tbYear.Text = InputData.Year.ToString();
             tbDirector.Text = (InputData.Director != null ? InputData.Director.ToString() : string.Empty);
-            actorGridView.DataSource = InputData.Actors ?? new List<Actor>();
+            actorGridView.DataSource = (InputData.Actors ?? new List<Actor>()).Select(p => new ActorViewModel(p)).ToList();
             cbGenre.DataSource = ProcessObject.MovieClient.GetAllGenres();
             if (InputData.Genre != null)
                 cbGenre.SelectedItem = InputData.Genre;
             else
                 cbGenre.SelectedIndex = -1;
             btnRefreshImage_Click(null, null);
-            Text = (FormType == FormType.ADD ? "Dodaj film" : (FormType == FormType.EDIT ? "Edytuj film" : "Info"));
+            Text = (FormType == FormType.ADD ? "Add movie" : (FormType == FormType.EDIT ? "Edit movie" : "Info"));
             if (FormType == FormType.INFO)
             {
                 tbCountry.ReadOnly = true;
@@ -61,13 +62,20 @@ namespace Client.ResourceForms
                 btnDeleteDirector.Visible = false;
                 btnRefreshImage.Visible = false;
                 cbGenre.Enabled = false;
+                double averageNode = ProcessObject.ReviewClient.GetAverageNoteForMovie(InputData.Id);
+                lbAver.Text = averageNode.ToString("F1");
                 base.btnCommit_ChangeVisibility(false);
                 base.btnCancel_ChangeImage(Properties.Resources.Actions_dialog_ok_apply_icon);
                 base.btnCancel_ChangeName("Ok");
+                pbStars.Width = (int)((averageNode / 5) * 200);
             }
             else
             {
                 btnShowReviews.Visible = false;
+                label10.Visible = false;
+                lbAver.Visible = false;
+                panel1.Visible = false;
+                pbStars.Visible = false;
             }
         }
 
@@ -84,8 +92,7 @@ namespace Client.ResourceForms
             else
                 throw new Exception("Podany rok jest błędny!");
 
-            tbDirector.Text = (InputData.Director != null ? InputData.Director.ToString() : string.Empty);
-            InputData.Actors = (List<Actor>)actorGridView.DataSource;
+            InputData.Actors = ((List<ActorViewModel>)actorGridView.DataSource).Select(p => p.Source).ToList();
 
             if (FormType == FormType.ADD)
             {
@@ -110,8 +117,8 @@ namespace Client.ResourceForms
                 ResourceBase result = chooser.ResultObject;
                 if (result != null && result is Actor)
                 {
-                    List<Actor> currentList = (List<Actor>)actorGridView.DataSource ?? new List<Actor>();
-                    currentList.Add((Actor)result);
+                    List<ActorViewModel> currentList = (List<ActorViewModel>)actorGridView.DataSource ?? new List<ActorViewModel>();
+                    currentList.Add((ActorViewModel)result);
                     actorGridView.DataSource = currentList;
                 }
             }
@@ -129,9 +136,9 @@ namespace Client.ResourceForms
                 chooser.Text = "Wybierz reżysera";
                 chooser.ShowDialog();
                 ResourceBase result = chooser.ResultObject;
-                if (result != null && result is Director)
+                if (result != null && result is DirectorViewModel)
                 {
-                    InputData.Director = (Director)result;
+                    InputData.Director = ((DirectorViewModel)result).Source;
                     tbDirector.Text = InputData.Director.ToString();
                 }
             }

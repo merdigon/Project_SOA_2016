@@ -35,7 +35,7 @@ namespace Client.ResourceForms
                 flowLayoutPanel1.Controls.Add(control);
             }
 
-            this.btnCommit_ChangeName("Dodaj");
+            this.btnCommit_ChangeName("Add");
             this.btnCommit_ChangeImage(Properties.Resources.add_icon);
 
             cbNode.DataSource = new int[] { 0, 1, 2, 3, 4, 5 };

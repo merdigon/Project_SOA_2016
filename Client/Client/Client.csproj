@@ -152,6 +152,8 @@
     <Compile Include="Translators\GenreTranslator.cs" />
     <Compile Include="Translators\ITranslator.cs" />
     <Compile Include="Translators\MovieTranslator.cs" />
+    <Compile Include="ViewModel\ActorViewModel.cs" />
+    <Compile Include="ViewModel\DirectorViewModel.cs" />
     <Compile Include="ViewModel\GridDataFilter.cs" />
     <Compile Include="ViewModel\SoaResourceModel.cs" />
     <EmbeddedResource Include="HelpingForm\ChooseFilterForm.resx">
@@ -273,6 +275,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

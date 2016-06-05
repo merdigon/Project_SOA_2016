@@ -34,12 +34,13 @@ namespace Client.Services
         {
             container.AddToReviews(ProcessObject.Mapper.Map<soaR.Review>(review));
             var operationStatus = container.SaveChanges();
-            //foreach (var stat in operationStatus)
-            //{
-            //    stat.
-            //}
-
+            
             return review;
+        }
+
+        public double GetAverageNoteForMovie(int movieId)
+        {
+            return container.AverageNote(movieId).GetValue();
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2016-06-05 12:11:03
+// Generation date: 2016-06-05 17:50:30
 namespace Client.Services.Library
 {
     /// <summary>
