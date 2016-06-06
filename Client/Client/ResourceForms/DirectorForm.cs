@@ -1,6 +1,7 @@
 ﻿using Client.Models;
 using Client.ProcessObjects;
 using Client.ResourceForms.Base;
+using Client.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,8 @@ namespace Client.ResourceForms
                 cbGender.SelectedItem = InputDirector.Gender;
             else
                 cbGender.SelectedIndex = -1;
+            
+            movieGridView.DataSource = (ProcessObject.MovieClient.GetAllMoviesForDirector(InputDirector.Id) ?? new List<Movie>()).Select(p => new MovieViewModel(p)).ToList();
 
             if (InputDirector.MaritalStatus != null)
                 cbMStatus.SelectedItem = InputDirector.MaritalStatus;

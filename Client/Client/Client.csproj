@@ -173,6 +173,7 @@
     <Compile Include="ViewModel\ActorViewModel.cs" />
     <Compile Include="ViewModel\DirectorViewModel.cs" />
     <Compile Include="ViewModel\GridDataFilter.cs" />
+    <Compile Include="ViewModel\MovieViewModel.cs" />
     <Compile Include="ViewModel\SoaResourceModel.cs" />
     <EmbeddedResource Include="HelpingForm\ChooseFilterForm.resx">
       <DependentUpon>ChooseFilterForm.cs</DependentUpon>

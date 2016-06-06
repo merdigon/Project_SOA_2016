@@ -69,5 +69,15 @@ namespace Client.Services
             movieToUpdate.Actors = movie.ActorsID.Select(p => new soaM.Actor() { ExternalActorID = p }).ToArray();
             return ProcessObject.Mapper.Map<view.Movie>(Client.AddMovie(movieToUpdate));
         }
+
+        public List<view.Movie> GetAllMoviesForActor(int actorId)
+        {
+            return Client.GetMoviesByActor(actorId).Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+        }
+
+        public List<view.Movie> GetAllMoviesForDirector(int directorId)
+        {
+            return Client.GetMoviesByDirector(directorId).Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+        }
     }
 }

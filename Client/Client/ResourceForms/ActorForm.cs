@@ -1,6 +1,7 @@
 ﻿using Client.Models;
 using Client.ProcessObjects;
 using Client.ResourceForms.Base;
+using Client.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,9 @@ namespace Client.ResourceForms
             cbGender.DataSource = Genders();
             cbMStatus.DataSource = MaritalStatuses();
             lbActorName.Text = InputActor.ToString();
+
+            movieGridView.DataSource = (ProcessObject.MovieClient.GetAllMoviesForActor(InputActor.Id) ?? new List<Movie>()).Select(p => new MovieViewModel(p)).ToList();
+
             Text = (FormType == FormType.ADD ? "Add actor" : (FormType == FormType.EDIT ? "Edit actor" : "Info"));
             if (InputActor.Gender != null)
                 cbGender.SelectedItem = InputActor.Gender;
