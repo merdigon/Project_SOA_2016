@@ -187,7 +187,7 @@ namespace Client.ResourceForms
         {
             Actor actorToDelete = null;
             if (actorGridView.SelectedCells.Count > 0)
-                actorToDelete = (Actor)actorGridView.Rows[actorGridView.SelectedCells[0].RowIndex].DataBoundItem;
+                actorToDelete = ((ActorViewModel)actorGridView.Rows[actorGridView.SelectedCells[0].RowIndex].DataBoundItem).Source;
             if (actorToDelete != null)
             {
                 InputData.ActorsList = InputData.ActorsList.Where(p => p.Id != actorToDelete.Id).ToList();

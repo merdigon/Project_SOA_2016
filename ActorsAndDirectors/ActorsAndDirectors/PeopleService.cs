@@ -11,12 +11,11 @@ namespace ActorsAndDirectors
     class PeopleService : IPeopleService
     {
         private PersonContext db = new PersonContext();
+        public ActorRepository repo = new ActorRepository();
 
         public void DeleteActor(Actor a)
         {
-            db.Actors.Attach(a);
-            db.Actors.Remove(a);
-            db.SaveChanges();
+            repo.Delete(a.Id);
         }
 
         public void DeleteDirector(Director d)
@@ -28,12 +27,12 @@ namespace ActorsAndDirectors
 
         public List<Actor> GetActors()
         {
-            return db.Actors.ToList();
+            return repo.ReadAll();
         }
 
         public List<Actor> GetActorsByName(string s)
         {
-            return db.Actors.Where(x => x.Name.Contains(s)).ToList();
+            return repo.GetActorsWithName(s);
         }
 
         public List<Director> GetDirectors()
@@ -48,7 +47,7 @@ namespace ActorsAndDirectors
 
         public bool UpdateActor(Actor a)
         {
-            var r = db.Actors.SingleOrDefault(x => x.PersonId == a.PersonId);
+            var r = repo.Read(a.Id);
 
             if(r != null)
             {
@@ -61,7 +60,7 @@ namespace ActorsAndDirectors
                 r.DateOfBirth = a.DateOfBirth;
                 r.Alive = a.Alive;
 
-                db.SaveChanges();
+                repo.Update(r);
                 return true;
             }
             return false;
@@ -92,10 +91,7 @@ namespace ActorsAndDirectors
         {
             try
             {
-                db.Actors.Add(a);
-                db.SaveChanges();
-
-                return a;
+                return repo.Create(a);   
             }
             catch (Exception)
             {
@@ -126,7 +122,7 @@ namespace ActorsAndDirectors
 
         public Actor GetActor(int id)
         {
-            return db.Actors.Where(x => x.PersonId == id).FirstOrDefault();
+            return repo.Read(id);
         }
     }
 }

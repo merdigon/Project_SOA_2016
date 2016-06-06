@@ -45,8 +45,8 @@ namespace Client.ProcessObjects
             cfg.CreateMap<view.Movie, soaM.Movie>().ForMember(dest => dest.MovieID, opt => opt.MapFrom(source => source.Id));//.ForMember(dest => dest.Genre, opt => opt.MapFrom(source => Mapper.Map<soaM.Genre, view.Genre>(source)));
             cfg.CreateMap<view.Review, soaR.Review>().ForMember(dest => dest.ReviewID, opt => opt.MapFrom(source => source.Id));
             cfg.CreateMap<soaR.Review, view.Review>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.ReviewID));
-            cfg.CreateMap<soaP.Actor, view.Actor>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.PersonId));
-            cfg.CreateMap<view.Actor, soaP.Actor>().ForMember(dest => dest.PersonId, opt => opt.MapFrom(source => source.Id));
+            cfg.CreateMap<soaP.Actor, view.Actor>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.Id));
+            cfg.CreateMap<view.Actor, soaP.Actor>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.Id));
             cfg.CreateMap<soaP.Director, view.Director>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.PersonId));
             cfg.CreateMap<view.Director, soaP.Director>().ForMember(dest => dest.PersonId, opt => opt.MapFrom(source => source.Id));
             cfg.CreateMap<soaU.User, view.User>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.UserId));

@@ -12,9 +12,8 @@ namespace ActorsAndDirectors.Models
     [DataContract]
     public class Actor
     {
-        [Key]
         [DataMember]
-        public int PersonId { get; set; }
+        public int Id { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

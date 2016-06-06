@@ -7,16 +7,24 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.OData;
 using System.Web.OData.Routing;
+using WebApi.Logger;
 
 namespace ProductService.Controllers
 {
     public class UsersController : ODataController
     {
         UsersContext db = new UsersContext();
+        private ILogger _logger;
+
+        public UsersController(ILogger _logger)
+        {
+            this._logger = _logger;
+        }
 
         [EnableQuery]
         public IQueryable<User> Get()
         {
+            _logger.LogInfo("Done");
             return db.Users;
         }
         [EnableQuery]

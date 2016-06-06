@@ -13,10 +13,10 @@
       <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="xs:string" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MovieId" nillable="true" type="q1:ArrayOfint" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PersonId" type="xs:int" />
       <xs:element minOccurs="0" name="PlaceOfBirth" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RealName" nillable="true" type="xs:string" />
     </xs:sequence>

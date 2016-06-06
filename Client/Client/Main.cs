@@ -35,7 +35,7 @@ namespace Client
             toolStripComboBox1.ComboBox.DataSource = new List<SoaResourceModel>()
             {
                 new SoaResourceModel() {ShowableName = "Movie", DataBindedType = typeof(Movie)},
-                new SoaResourceModel() {ShowableName = "User", DataBindedType = typeof(User)},
+                //new SoaResourceModel() {ShowableName = "User", DataBindedType = typeof(User)},
                 new SoaResourceModel() {ShowableName = "Actor", DataBindedType = typeof(Actor)},
                 new SoaResourceModel() {ShowableName = "Director", DataBindedType = typeof(Director)},
             };

@@ -35,6 +35,9 @@ namespace Client.PeopleService {
         private int HeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MaritalStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -42,9 +45,6 @@ namespace Client.PeopleService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PersonIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PlaceOfBirthField;
@@ -115,6 +115,19 @@ namespace Client.PeopleService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MaritalStatus {
             get {
                 return this.MaritalStatusField;
@@ -149,19 +162,6 @@ namespace Client.PeopleService {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PersonId {
-            get {
-                return this.PersonIdField;
-            }
-            set {
-                if ((this.PersonIdField.Equals(value) != true)) {
-                    this.PersonIdField = value;
-                    this.RaisePropertyChanged("PersonId");
                 }
             }
         }

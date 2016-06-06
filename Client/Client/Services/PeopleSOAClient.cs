@@ -46,7 +46,7 @@ namespace Client.Services
 
         public void DeleteActor(int id)
         {
-            Client.DeleteActor(new soaP.Actor() { PersonId = id });
+            Client.DeleteActor(new soaP.Actor() { Id = id });
         }
 
         public bool UpdateActor(view.Actor actor)
