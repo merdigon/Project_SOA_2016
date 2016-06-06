@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using view = Client.Models;
 using soaM = Client.MovieService;
-using soaR = Client.Services.Library;
+using soaR = Client.ReviewServices.Library;
+using soaU = Client.UserServices.Library;
 using soaP = Client.PeopleService;
 using Client.Services;
 
@@ -21,9 +22,11 @@ namespace Client.ProcessObjects
         private readonly MovieSOAClient _movieClient;
         private readonly ReviewSOAClient _reviewClient;
         private readonly PeopleSOAClient _peopleClient;
+        private readonly UserSOAClient _userClient;
         public MovieSOAClient MovieClient { get { return _movieClient; } }
         public ReviewSOAClient ReviewClient { get { return _reviewClient; } }
         public PeopleSOAClient PeopleClient { get { return _peopleClient; } }
+        public UserSOAClient UserClient { get { return _userClient; } }
         
         public ProcessObject()
         {
@@ -31,6 +34,7 @@ namespace Client.ProcessObjects
             _movieClient = new MovieSOAClient(this);
             _reviewClient = new ReviewSOAClient(this);
             _peopleClient = new PeopleSOAClient(this);
+            _userClient = new UserSOAClient(this);
         }
 
         private void CreateMapping()
@@ -45,6 +49,8 @@ namespace Client.ProcessObjects
             cfg.CreateMap<view.Actor, soaP.Actor>().ForMember(dest => dest.PersonId, opt => opt.MapFrom(source => source.Id));
             cfg.CreateMap<soaP.Director, view.Director>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.PersonId));
             cfg.CreateMap<view.Director, soaP.Director>().ForMember(dest => dest.PersonId, opt => opt.MapFrom(source => source.Id));
+            cfg.CreateMap<soaU.User, view.User>().ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.UserId));
+            cfg.CreateMap<view.User, soaU.User>().ForMember(dest => dest.UserId, opt => opt.MapFrom(source => source.Id));
             });
 
             Mapper = config.CreateMapper();

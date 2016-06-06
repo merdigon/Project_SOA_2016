@@ -23,6 +23,7 @@ namespace Client.ResourceForms
         {
             InitializeComponent();
             dataList = listOfReviews;
+            dataList.ForEach(p => p.User = processObject.UserClient.GetUser(p.UserID));
             currentMovie = movie;
             this.processObject = processObject;
             FillForm();
@@ -50,6 +51,7 @@ namespace Client.ResourceForms
                 Movie = currentMovie,
                 User = processObject.LoggedUser,
                 Note = (int)cbNode.SelectedItem,
+                UserID = processObject.LoggedUser.Id,
                 Date = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString()
             };
             processObject.ReviewClient.AddReview(newReview);
@@ -59,6 +61,7 @@ namespace Client.ResourceForms
         public void RefreshData()
         {
             dataList = processObject.ReviewClient.GetReviewsForMovie(currentMovie.Id);
+            dataList.ForEach(p => p.User = (p.UserID != 0 ? processObject.UserClient.GetUser(p.UserID): null));
             flowLayoutPanel1.Controls.Clear();
             foreach (Review review in dataList)
             {

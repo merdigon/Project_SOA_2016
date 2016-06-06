@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cbc8c514-1435-40cb-a882-9beca89ec81b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/MovieService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="4fb704b8-1b4e-4091-b649-62468e121508" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="28027f3c-df6c-43b1-ac10-f922e171c84c" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0be903ea-53e7-4325-bfd7-e28d3fbcbfb6" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+    <MetadataFile FileName="MoviesService.Models.xsd" MetadataType="Schema" ID="fc2331a5-71f5-4a06-bdbe-1f27ab9b69f0" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+    <MetadataFile FileName="ReviewsService.Library.xsd" MetadataType="Schema" ID="6b17b790-d918-42aa-a63d-09ce88f48019" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+    <MetadataFile FileName="Microsoft.OData.Client.xsd" MetadataType="Schema" ID="8e31f170-0961-40e9-8ed9-e21a78b73ff6" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

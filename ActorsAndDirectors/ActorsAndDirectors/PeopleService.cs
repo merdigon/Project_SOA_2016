@@ -14,12 +14,14 @@ namespace ActorsAndDirectors
 
         public void DeleteActor(Actor a)
         {
+            db.Actors.Attach(a);
             db.Actors.Remove(a);
             db.SaveChanges();
         }
 
         public void DeleteDirector(Director d)
         {
+            db.Directors.Attach(d);
             db.Directors.Remove(d);
             db.SaveChanges();
         }

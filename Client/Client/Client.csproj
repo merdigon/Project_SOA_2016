@@ -72,6 +72,12 @@
     <Compile Include="HelpingForm\ChooseFilterForm.Designer.cs">
       <DependentUpon>ChooseFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpingForm\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpingForm\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpingForm\OneReviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,7 +160,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReviewReference.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\UserSOAClient.cs" />
     <Compile Include="Services\ReviewSOAClient.cs" />
+    <Compile Include="Services\UserReference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserReference.tt</DependentUpon>
+    </Compile>
     <Compile Include="Translators\GenreTranslator.cs" />
     <Compile Include="Translators\ITranslator.cs" />
     <Compile Include="Translators\MovieTranslator.cs" />
@@ -164,6 +176,9 @@
     <Compile Include="ViewModel\SoaResourceModel.cs" />
     <EmbeddedResource Include="HelpingForm\ChooseFilterForm.resx">
       <DependentUpon>ChooseFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpingForm\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpingForm\OneReviewControl.resx">
       <DependentUpon>OneReviewControl.cs</DependentUpon>
@@ -255,6 +270,7 @@
       <LastGenOutput>ReviewReference.cs</LastGenOutput>
     </None>
     <None Include="Services\ReviewReference.ttinclude" />
+    <None Include="Services\UserReference.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -322,6 +338,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\UserReference.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UserReference.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

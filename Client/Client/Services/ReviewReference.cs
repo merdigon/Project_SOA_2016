@@ -8,8 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 2016-06-05 17:50:30
-namespace Client.Services.Library
+// Generation date: 2016-06-06 11:57:50
+namespace Client.ReviewServices.Library
 {
     /// <summary>
     /// There are no comments for ReviewSingle in the schema.
@@ -227,31 +227,31 @@ namespace Client.Services.Library
     public static class ExtensionMethods
     {
         /// <summary>
-        /// Get an entity of type global::Client.Services.Library.Review as global::Client.Services.Library.ReviewSingle specified by key from an entity set
+        /// Get an entity of type global::Client.ReviewServices.Library.Review as global::Client.ReviewServices.Library.ReviewSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="keys">dictionary with the names and values of keys</param>
-        public static global::Client.Services.Library.ReviewSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::Client.Services.Library.Review> source, global::System.Collections.Generic.Dictionary<string, object> keys)
+        public static global::Client.ReviewServices.Library.ReviewSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::Client.ReviewServices.Library.Review> source, global::System.Collections.Generic.Dictionary<string, object> keys)
         {
-            return new global::Client.Services.Library.ReviewSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::Client.ReviewServices.Library.ReviewSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
         /// <summary>
-        /// Get an entity of type global::Client.Services.Library.Review as global::Client.Services.Library.ReviewSingle specified by key from an entity set
+        /// Get an entity of type global::Client.ReviewServices.Library.Review as global::Client.ReviewServices.Library.ReviewSingle specified by key from an entity set
         /// </summary>
         /// <param name="source">source entity set</param>
         /// <param name="reviewID">The value of reviewID</param>
-        public static global::Client.Services.Library.ReviewSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::Client.Services.Library.Review> source,
+        public static global::Client.ReviewServices.Library.ReviewSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::Client.ReviewServices.Library.Review> source,
             int reviewID)
         {
             global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
             {
                 { "ReviewID", reviewID }
             };
-            return new global::Client.Services.Library.ReviewSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+            return new global::Client.ReviewServices.Library.ReviewSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
         }
     }
 }
-namespace Client.Services.Default
+namespace Client.ReviewServices.Default
 {
     /// <summary>
     /// There are no comments for Container in the schema.
@@ -281,12 +281,12 @@ namespace Client.Services.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            global::System.Type resolvedType = this.DefaultResolveType(typeName, "Default", "Client.Services.Default");
+            global::System.Type resolvedType = this.DefaultResolveType(typeName, "Default", "Client.ReviewServices.Default");
             if ((resolvedType != null))
             {
                 return resolvedType;
             }
-            resolvedType = this.DefaultResolveType(typeName, "Library", "Client.Services.Library");
+            resolvedType = this.DefaultResolveType(typeName, "Library", "Client.ReviewServices.Library");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -302,7 +302,7 @@ namespace Client.Services.Default
         protected string ResolveNameFromType(global::System.Type clientType)
         {
             global::Microsoft.OData.Client.OriginalNameAttribute originalNameAttribute = (global::Microsoft.OData.Client.OriginalNameAttribute)global::System.Linq.Enumerable.SingleOrDefault(global::Microsoft.OData.Client.Utility.GetCustomAttributes(clientType, typeof(global::Microsoft.OData.Client.OriginalNameAttribute), true));
-            if (clientType.Namespace.Equals("Client.Services.Default", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("Client.ReviewServices.Default", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
                 {
@@ -310,7 +310,7 @@ namespace Client.Services.Default
                 }
                 return string.Concat("Default.", clientType.Name);
             }
-            if (clientType.Namespace.Equals("Client.Services.Library", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("Client.ReviewServices.Library", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
                 {
@@ -325,24 +325,24 @@ namespace Client.Services.Default
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
         [global::Microsoft.OData.Client.OriginalNameAttribute("Reviews")]
-        public global::Microsoft.OData.Client.DataServiceQuery<global::Client.Services.Library.Review> Reviews
+        public global::Microsoft.OData.Client.DataServiceQuery<global::Client.ReviewServices.Library.Review> Reviews
         {
             get
             {
                 if ((this._Reviews == null))
                 {
-                    this._Reviews = base.CreateQuery<global::Client.Services.Library.Review>("Reviews");
+                    this._Reviews = base.CreateQuery<global::Client.ReviewServices.Library.Review>("Reviews");
                 }
                 return this._Reviews;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        private global::Microsoft.OData.Client.DataServiceQuery<global::Client.Services.Library.Review> _Reviews;
+        private global::Microsoft.OData.Client.DataServiceQuery<global::Client.ReviewServices.Library.Review> _Reviews;
         /// <summary>
         /// There are no comments for Reviews in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "2.4.0")]
-        public void AddToReviews(global::Client.Services.Library.Review review)
+        public void AddToReviews(global::Client.ReviewServices.Library.Review review)
         {
             base.AddObject("Reviews", review);
         }

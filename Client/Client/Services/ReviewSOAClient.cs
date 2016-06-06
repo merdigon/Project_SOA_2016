@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Client.Services.Default;
-using soaR = Client.Services.Library;
+using Client.ReviewServices.Default;
+using soaR = Client.ReviewServices.Library;
 using view = Client.Models;
 using Client.ProcessObjects;
 

@@ -24,7 +24,7 @@ namespace Client.ResourceForms
         {
             InitializeComponent();
             InputDirector = director;
-            ProcessObject = ProcessObject;
+            this.ProcessObject = processObject;
             FormType = formType;
             FillForm();
         }
@@ -68,6 +68,27 @@ namespace Client.ResourceForms
 
             lbDirectorName.Location = new Point((this.Size.Width / 2) - (lbDirectorName.Size.Width / 2), lbDirectorName.Location.Y);
             lbDirectorName.Refresh();
+        }
+        
+        public override void CommitClick()
+        {
+            InputDirector.PlaceOfBirth = tbBirthPlace.Text;
+            InputDirector.DateOfBirth = tbDateBirth.Text;
+            int height;
+            if (Int32.TryParse(tbHeight.Text, out height))
+                InputDirector.Height = height;
+            InputDirector.Name = tbName.Text;
+            InputDirector.RealName = tbSurname.Text;
+            InputDirector.Alive = chBAlive.Checked;
+            InputDirector.Gender = cbGender.SelectedItem.ToString();
+            InputDirector.MaritalStatus = cbMStatus.SelectedItem.ToString();
+
+            if (FormType == FormType.ADD)
+                ProcessObject.PeopleClient.AddDirector(InputDirector);
+            else if (FormType == FormType.EDIT)
+                ProcessObject.PeopleClient.UpdateDirector(InputDirector);
+
+            base.CommitClick();
         }
 
         private string[] Genders()

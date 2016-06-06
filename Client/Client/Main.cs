@@ -22,12 +22,12 @@ namespace Client
         List<ResourceBase> downloadedData = null;
         ProcessObject processObject;
 
-        public Main()
+        public Main(ProcessObject processObject)
         {
             InitializeComponent();
             FillForm();
             gridManager.RefresingMainView = SetFilterAndRefreshGridView;
-            processObject = new ProcessObject();
+            this.processObject = processObject;
         }
 
         public void FillForm()
