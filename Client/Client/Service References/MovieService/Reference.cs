@@ -84,6 +84,9 @@ namespace Client.MovieService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] ActorIDsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CountryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -114,6 +117,19 @@ namespace Client.MovieService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] ActorIDs {
+            get {
+                return this.ActorIDsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActorIDsField, value) != true)) {
+                    this.ActorIDsField = value;
+                    this.RaisePropertyChanged("ActorIDs");
+                }
             }
         }
         
@@ -271,6 +287,18 @@ namespace Client.MovieService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/GetMoviesByYear", ReplyAction="http://tempuri.org/IMovieService/GetMoviesByYearResponse")]
         System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByYearAsync(int year);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/GetMoviesByDirector", ReplyAction="http://tempuri.org/IMovieService/GetMoviesByDirectorResponse")]
+        Client.MovieService.Movie[] GetMoviesByDirector(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/GetMoviesByDirector", ReplyAction="http://tempuri.org/IMovieService/GetMoviesByDirectorResponse")]
+        System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByDirectorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/GetMoviesByActor", ReplyAction="http://tempuri.org/IMovieService/GetMoviesByActorResponse")]
+        Client.MovieService.Movie[] GetMoviesByActor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/GetMoviesByActor", ReplyAction="http://tempuri.org/IMovieService/GetMoviesByActorResponse")]
+        System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByActorAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/AddMovie", ReplyAction="http://tempuri.org/IMovieService/AddMovieResponse")]
         Client.MovieService.Movie AddMovie(Client.MovieService.Movie movie);
         
@@ -381,6 +409,22 @@ namespace Client.MovieService {
         
         public System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByYearAsync(int year) {
             return base.Channel.GetMoviesByYearAsync(year);
+        }
+        
+        public Client.MovieService.Movie[] GetMoviesByDirector(int id) {
+            return base.Channel.GetMoviesByDirector(id);
+        }
+        
+        public System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByDirectorAsync(int id) {
+            return base.Channel.GetMoviesByDirectorAsync(id);
+        }
+        
+        public Client.MovieService.Movie[] GetMoviesByActor(int id) {
+            return base.Channel.GetMoviesByActor(id);
+        }
+        
+        public System.Threading.Tasks.Task<Client.MovieService.Movie[]> GetMoviesByActorAsync(int id) {
+            return base.Channel.GetMoviesByActorAsync(id);
         }
         
         public Client.MovieService.Movie AddMovie(Client.MovieService.Movie movie) {

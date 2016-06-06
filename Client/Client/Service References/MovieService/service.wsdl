@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/MoviesService.Models" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IMovieService_GetGenres_InputMessage">
@@ -42,6 +43,18 @@
   </wsdl:message>
   <wsdl:message name="IMovieService_GetMoviesByYear_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMoviesByYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieService_GetMoviesByDirector_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByDirector" />
+  </wsdl:message>
+  <wsdl:message name="IMovieService_GetMoviesByDirector_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByDirectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieService_GetMoviesByActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByActor" />
+  </wsdl:message>
+  <wsdl:message name="IMovieService_GetMoviesByActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByActorResponse" />
   </wsdl:message>
   <wsdl:message name="IMovieService_AddMovie_InputMessage">
     <wsdl:part name="parameters" element="tns:AddMovie" />
@@ -103,6 +116,14 @@
     <wsdl:operation name="GetMoviesByYear">
       <wsdl:input wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByYear" message="tns:IMovieService_GetMoviesByYear_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByYearResponse" message="tns:IMovieService_GetMoviesByYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByDirector">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByDirector" message="tns:IMovieService_GetMoviesByDirector_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByDirectorResponse" message="tns:IMovieService_GetMoviesByDirector_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByActor" message="tns:IMovieService_GetMoviesByActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieService/GetMoviesByActorResponse" message="tns:IMovieService_GetMoviesByActor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddMovie">
       <wsdl:input wsaw:Action="http://tempuri.org/IMovieService/AddMovie" message="tns:IMovieService_AddMovie_InputMessage" />
@@ -178,6 +199,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetMoviesByYear">
       <soap:operation soapAction="http://tempuri.org/IMovieService/GetMoviesByYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByDirector">
+      <soap:operation soapAction="http://tempuri.org/IMovieService/GetMoviesByDirector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByActor">
+      <soap:operation soapAction="http://tempuri.org/IMovieService/GetMoviesByActor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -212,6 +212,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\MovieService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MovieService\Client.MovieService.Genre.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -229,6 +232,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PeopleService\ActorsAndDirectors.Models.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PeopleService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PeopleService\Client.PeopleService.Actor.datasource">

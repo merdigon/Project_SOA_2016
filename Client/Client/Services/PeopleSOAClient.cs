@@ -32,6 +32,18 @@ namespace Client.Services
             return list.Select(p => ProcessObject.Mapper.Map<view.Director>(p)).ToList();
         }
 
+        public view.Director GetDirector(int directorId)
+        {
+            var dire = (Client.GetDirector(directorId) ?? new soaP.Director());
+            return ProcessObject.Mapper.Map<view.Director>(dire);
+        }
+
+        public view.Actor GetActor(int actorId)
+        {
+            var actor = (Client.GetActor(actorId) ?? new soaP.Actor());
+            return ProcessObject.Mapper.Map<view.Actor>(actor);
+        }
+
         public void DeleteActor(int id)
         {
             Client.DeleteActor(new soaP.Actor() { PersonId = id });
@@ -59,7 +71,7 @@ namespace Client.Services
             soaP.Director directorToUpdate = ProcessObject.Mapper.Map<soaP.Director>(director);
             return Client.UpdateDirector(directorToUpdate);
         }
-
+        
         public view.Director AddDirector(view.Director director)
         {
             soaP.Director directorToAdd = ProcessObject.Mapper.Map<soaP.Director>(director);

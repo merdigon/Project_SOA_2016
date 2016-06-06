@@ -12,6 +12,7 @@ namespace Client.Models
         public int Note { get; set; }
         public Movie Movie { get; set; }
         public string Date { get; set; }
+        public int UserID { get; set; }
         public User User { get; set; }
     }
 }

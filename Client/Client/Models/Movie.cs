@@ -25,7 +25,7 @@ namespace Client.Models
         public Genre Genre { get; set; }
 
         [Browsable(false)]
-        public List<int> ActorsID { get; set; }
+        public List<int> ActorIDs { get; set; }
 
         public List<Actor> Actors { get; set; }
 

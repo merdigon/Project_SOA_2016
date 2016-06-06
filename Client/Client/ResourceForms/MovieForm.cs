@@ -30,7 +30,16 @@ namespace Client.ResourceForms
             ProcessObject = processObject;
             InputData = input ?? new Movie();
             FormType = formType;
+            LoadData();
             FillForm();
+        }
+
+        private void LoadData()
+        {
+            if (InputData.DirectorID != 0)
+                InputData.Director = ProcessObject.PeopleClient.GetDirector(InputData.DirectorID);
+            if (InputData.ActorIDs != null)
+                InputData.Actors = InputData.ActorIDs.Select(p => ProcessObject.PeopleClient.GetActor(p)).ToList();
         }
 
         private void FillForm()
@@ -93,6 +102,14 @@ namespace Client.ResourceForms
                 throw new Exception("Podany rok jest błędny!");
 
             InputData.Actors = ((List<ActorViewModel>)actorGridView.DataSource).Select(p => p.Source).ToList();
+
+            if (InputData.Director != null)
+                InputData.DirectorID = InputData.Director.Id;
+            else
+                InputData.DirectorID = 0;
+
+            if (InputData.Actors != null)
+                InputData.ActorIDs = InputData.Actors.Select(p => p.Id).ToList();
 
             if (FormType == FormType.ADD)
             {
