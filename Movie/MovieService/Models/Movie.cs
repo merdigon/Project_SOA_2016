@@ -17,7 +17,7 @@ namespace MoviesService.Models
         public int Year { get; set; }
         public string Country { get; set; } 
         public int DirectorID { get; set; }
-        public List<int> ActorIDs { get; set; }
+        public virtual ICollection<Actor> Actors { get; set; }
         public virtual Genre Genre { get; set; }
         public string CoverURI { get; set; }
     }

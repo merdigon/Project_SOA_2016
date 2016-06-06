@@ -103,6 +103,8 @@ namespace MoviesService
                 result.Genre = movie.Genre;
                 result.Title = movie.Title;
                 result.Country = movie.Country;
+		result.DirectorID = movie.DirectorID;
+		result.Actors = movie.Actors;
                 db.SaveChanges();
                 return true;
             }
