@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MoviesService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MoviesService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfGenre">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Genre" nillable="true" type="tns:Genre" />
@@ -22,7 +21,7 @@
   <xs:element name="ArrayOfMovie" nillable="true" type="tns:ArrayOfMovie" />
   <xs:complexType name="Movie">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ActorIDs" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="Actors" nillable="true" type="tns:ArrayOfActor" />
       <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CoverURI" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -34,4 +33,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Movie" nillable="true" type="tns:Movie" />
+  <xs:complexType name="ArrayOfActor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Actor" nillable="true" type="tns:Actor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActor" nillable="true" type="tns:ArrayOfActor" />
+  <xs:complexType name="Actor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActorID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExternalActorID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Actor" nillable="true" type="tns:Actor" />
 </xs:schema>

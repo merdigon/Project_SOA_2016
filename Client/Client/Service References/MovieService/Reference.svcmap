@@ -26,7 +26,6 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="1ac60fa0-a81c-45d6-83e8-b0249f37b3ac" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f0fb05ab-5332-4732-8a34-166abdc818c2" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
     <MetadataFile FileName="MoviesService.Models.xsd" MetadataType="Schema" ID="0aa0a3c3-6dc5-451f-91e9-df774681eff4" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="25f7cd6d-695e-450c-a058-4d288f5412e3" SourceId="1" SourceUrl="http://localhost:8733/MovieService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

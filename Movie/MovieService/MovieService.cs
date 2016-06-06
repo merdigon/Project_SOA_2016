@@ -19,37 +19,37 @@ namespace MoviesService
 
         public List<Movie> GetMovies()
         {
-            return db.Movies.Include("Genre").ToList();
+            return db.Movies.Include("Genre").Include("Actors").ToList();
         }
 
         public List<Movie> GetMoviesByGenre(Genre genre)
         {
-            return db.Movies.Include("Genre").Where(x => x.Genre == genre).ToList();
+            return db.Movies.Include("Genre").Include("Actors").Where(x => x.Genre == genre).ToList();
         }
 
         public List<Movie> GetMoviesByTitle(string title)
         {
-            return db.Movies.Include("Genre").Where(x => x.Title == title).ToList();
+            return db.Movies.Include("Genre").Include("Actors").Where(x => x.Title == title).ToList();
         }
 
         public List<Movie> GetMoviesByTitlePart(string part)
         {
-            return db.Movies.Include("Genre").Where(x => x.Title.Contains(part)).ToList();
+            return db.Movies.Include("Genre").Include("Actors").Where(x => x.Title.Contains(part)).ToList();
         }
 
         public List<Movie> GetMoviesByYear(int year)
         {
-            return db.Movies.Include("Genre").Where(x => x.Year == year).ToList();
+            return db.Movies.Include("Genre").Include("Actors").Where(x => x.Year == year).ToList();
         }
 
         public List<Movie> GetMoviesByDirector(int id)
         {
-            return db.Movies.Include("Genre").Where(x => x.DirectorID == id).ToList();
+            return db.Movies.Include("Genre").Include("Actors").Where(x => x.DirectorID == id).ToList();
         }
 
         public List<Movie> GetMoviesByActor(int id)
         {
-            return db.Movies.Include("Genre").Where(x => x.ActorIDs.Contains(id)).ToList();
+            return db.Movies.Include("Genre").Where(x => x.Actors.Select(p => p.ExternalActorID).Contains(id)).ToList();
         }
 
 
@@ -83,6 +83,7 @@ namespace MoviesService
 
         public void DeleteMovie(Movie movie)
         {
+            db.Movies.Attach(movie);
             db.Movies.Remove(movie);
             db.SaveChanges();
         }

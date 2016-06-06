@@ -140,6 +140,7 @@
             this.btnDeleteActor.Size = new System.Drawing.Size(54, 26);
             this.btnDeleteActor.TabIndex = 10;
             this.btnDeleteActor.UseVisualStyleBackColor = true;
+            this.btnDeleteActor.Click += btnDeleteActor_Click;
             // 
             // label4
             // 

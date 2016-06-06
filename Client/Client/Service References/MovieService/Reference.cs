@@ -84,7 +84,7 @@ namespace Client.MovieService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int[] ActorIDsField;
+        private Client.MovieService.Actor[] ActorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CountryField;
@@ -121,14 +121,14 @@ namespace Client.MovieService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] ActorIDs {
+        public Client.MovieService.Actor[] Actors {
             get {
-                return this.ActorIDsField;
+                return this.ActorsField;
             }
             set {
-                if ((object.ReferenceEquals(this.ActorIDsField, value) != true)) {
-                    this.ActorIDsField = value;
-                    this.RaisePropertyChanged("ActorIDs");
+                if ((object.ReferenceEquals(this.ActorsField, value) != true)) {
+                    this.ActorsField = value;
+                    this.RaisePropertyChanged("Actors");
                 }
             }
         }
@@ -233,6 +233,67 @@ namespace Client.MovieService {
                 if ((this.YearField.Equals(value) != true)) {
                     this.YearField = value;
                     this.RaisePropertyChanged("Year");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Actor", Namespace="http://schemas.datacontract.org/2004/07/MoviesService.Models")]
+    [System.SerializableAttribute()]
+    public partial class Actor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ActorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ExternalActorIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ActorID {
+            get {
+                return this.ActorIDField;
+            }
+            set {
+                if ((this.ActorIDField.Equals(value) != true)) {
+                    this.ActorIDField = value;
+                    this.RaisePropertyChanged("ActorID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ExternalActorID {
+            get {
+                return this.ExternalActorIDField;
+            }
+            set {
+                if ((this.ExternalActorIDField.Equals(value) != true)) {
+                    this.ExternalActorIDField = value;
+                    this.RaisePropertyChanged("ExternalActorID");
                 }
             }
         }

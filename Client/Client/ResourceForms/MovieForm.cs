@@ -38,8 +38,8 @@ namespace Client.ResourceForms
         {
             if (InputData.DirectorID != 0)
                 InputData.Director = ProcessObject.PeopleClient.GetDirector(InputData.DirectorID);
-            if (InputData.ActorIDs != null)
-                InputData.Actors = InputData.ActorIDs.Select(p => ProcessObject.PeopleClient.GetActor(p)).ToList();
+            if (InputData.ActorsID != null)
+                InputData.ActorsList = InputData.ActorsID.Select(p => ProcessObject.PeopleClient.GetActor(p)).ToList();
         }
 
         private void FillForm()
@@ -50,7 +50,7 @@ namespace Client.ResourceForms
             tbImageUri.Text = InputData.CoverURI;
             tbYear.Text = InputData.Year.ToString();
             tbDirector.Text = (InputData.Director != null ? InputData.Director.ToString() : string.Empty);
-            actorGridView.DataSource = (InputData.Actors ?? new List<Actor>()).Select(p => new ActorViewModel(p)).ToList();
+            actorGridView.DataSource = (InputData.ActorsList ?? new List<Actor>()).Select(p => new ActorViewModel(p)).ToList();
             cbGenre.DataSource = ProcessObject.MovieClient.GetAllGenres();
             if (InputData.Genre != null)
                 cbGenre.SelectedItem = InputData.Genre;
@@ -101,15 +101,15 @@ namespace Client.ResourceForms
             else
                 throw new Exception("Podany rok jest błędny!");
 
-            InputData.Actors = ((List<ActorViewModel>)actorGridView.DataSource).Select(p => p.Source).ToList();
+            InputData.ActorsList = ((List<ActorViewModel>)actorGridView.DataSource).Select(p => p.Source).ToList();
 
             if (InputData.Director != null)
                 InputData.DirectorID = InputData.Director.Id;
             else
                 InputData.DirectorID = 0;
 
-            if (InputData.Actors != null)
-                InputData.ActorIDs = InputData.Actors.Select(p => p.Id).ToList();
+            if (InputData.ActorsList != null)
+                InputData.ActorsID = InputData.ActorsList.Select(p => p.Id).ToList();
 
             if (FormType == FormType.ADD)
             {
@@ -146,6 +146,7 @@ namespace Client.ResourceForms
         private void btnDeleteDirector_Click(object sender, EventArgs e)
         {
             InputData.Director = null;
+            tbDirector.Text = string.Empty;
         }
 
         private void btnSetDirector_Click(object sender, EventArgs e)
@@ -179,6 +180,19 @@ namespace Client.ResourceForms
             using (ReviewForm reviewForm = new ReviewForm(reviewList, InputData, ProcessObject))
             {
                 reviewForm.ShowDialog();
+            }
+        }
+
+        private void btnDeleteActor_Click(object sender, EventArgs e)
+        {
+            Actor actorToDelete = null;
+            if (actorGridView.SelectedCells.Count > 0)
+                actorToDelete = (Actor)actorGridView.Rows[actorGridView.SelectedCells[0].RowIndex].DataBoundItem;
+            if (actorToDelete != null)
+            {
+                InputData.ActorsList = InputData.ActorsList.Where(p => p.Id != actorToDelete.Id).ToList();
+                actorGridView.DataSource = InputData.ActorsList;
+                actorGridView.Refresh();
             }
         }
     }

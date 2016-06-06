@@ -82,6 +82,7 @@
     <Compile Include="DAL\MovieContext.cs" />
     <Compile Include="DAL\MovieInitializer.cs" />
     <Compile Include="IMovieService.cs" />
+    <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

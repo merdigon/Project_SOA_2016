@@ -34,13 +34,21 @@ namespace Client.Services
         public List<view.Movie> GetMoviesByTitlePart(string namePart)
         {
             var list = (Client.GetMoviesByTitlePart(namePart) ?? new soaM.Movie[0]);
-            return list.Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+            list.ToList().ForEach(p => p.Actors = p.Actors ?? new soaM.Actor[0]);
+            var result = list.Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+            result.ToList().ForEach(p => p.ActorsID = p.ActorsID ?? new List<int>());
+            result.ForEach(p => p.ActorsID = list.Where(r => r.MovieID == p.Id).FirstOrDefault().Actors.Select(s => s.ExternalActorID).ToList());
+            return result;
         }
 
         public List<view.Movie> GetMoviesByTitle(string name)
         {
             var list = (Client.GetMoviesByTitle(name) ?? new soaM.Movie[0]);
-            return list.Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+            list.ToList().ForEach(p => p.Actors = p.Actors ?? new soaM.Actor[0]);
+            var result = list.Select(p => ProcessObject.Mapper.Map<view.Movie>(p)).ToList();
+            result.ToList().ForEach(p => p.ActorsID = p.ActorsID ?? new List<int>());
+            result.ForEach(p => p.ActorsID = list.Where(r => r.MovieID == p.Id).FirstOrDefault().Actors.Select(s => s.ExternalActorID).ToList());
+            return result;
         }
 
         public void DeleteMovie(int id)
@@ -51,12 +59,14 @@ namespace Client.Services
         public bool UpdateMovie(view.Movie movie)
         {
             soaM.Movie movieToUpdate = ProcessObject.Mapper.Map<soaM.Movie>(movie);
+            movieToUpdate.Actors = movie.ActorsID.Select(p => new soaM.Actor() { ExternalActorID = p }).ToArray();
             return Client.UpdateMovie(movieToUpdate);
         }
 
         public view.Movie AddMovie(view.Movie movie)
         {
             soaM.Movie movieToUpdate = ProcessObject.Mapper.Map<soaM.Movie>(movie);
+            movieToUpdate.Actors = movie.ActorsID.Select(p => new soaM.Actor() { ExternalActorID = p }).ToArray();
             return ProcessObject.Mapper.Map<view.Movie>(Client.AddMovie(movieToUpdate));
         }
     }

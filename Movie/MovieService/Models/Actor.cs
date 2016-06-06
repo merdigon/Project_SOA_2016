@@ -10,7 +10,8 @@ namespace MoviesService.Models
     public class Actor
     {
         [Key]
-        public int ActorID;
-        
+        public int ActorID { get; set; }
+
+        public int ExternalActorID { get; set; }
     }
 }
