@@ -24,18 +24,20 @@ namespace ProductService.Controllers
         [EnableQuery]
         public IQueryable<User> Get()
         {
-            _logger.LogInfo("Done");
+            _logger.LogInfo("-Get-");
             return db.Users;
         }
         [EnableQuery]
         public SingleResult<User> Get([FromODataUri] int key)
         {
             IQueryable<User> result = db.Users.Where(p => p.UserId == key);
+            _logger.LogInfo("-Get-" + key.ToString() + "-");
             return SingleResult.Create(result);
         }
 
         public async Task<IHttpActionResult> Post(User review)
         {
+            _logger.LogInfo("-Post-");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -47,6 +49,7 @@ namespace ProductService.Controllers
 
         public async Task<IHttpActionResult> Put([FromODataUri] int key, User update)
         {
+            _logger.LogInfo("-Put-");
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -77,6 +80,7 @@ namespace ProductService.Controllers
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
             var product = await db.Users.FindAsync(key);
+            _logger.LogInfo("-Delete-");
             if (product == null)
             {
                 return NotFound();
